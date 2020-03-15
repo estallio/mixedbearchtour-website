@@ -1,0 +1,35 @@
+.main
+  display: flex
+  flex: 1
+  justify-content: center
+  padding-left: 20px
+  padding-right: 20px
+
+.center
+  min-width: 400px
+  max-width: 800px
+  padding-left: 40px
+  padding-right: 40px
+  box-sizing: border-box
+  z-index: 3
+
+.site
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+  background-color: #333333
+  min-width: 960px
+  overflow: hidden
+  &:after
+    display: block
+    content: ''
+    position: absolute
+    z-index: 1
+    width: 100%
+    min-width: 960px
+    height: 800px
+    background-image: linear-gradient(to bottom, rgba(51,51,51,0) 200px, rgba(51,51,51,1) 800px), url('/media/images/natur-strand-baum-blauer-himmel.jpg')
+    background-position: 100% 50%
+    background-size: cover
+    background-repeat: no-repeat
+

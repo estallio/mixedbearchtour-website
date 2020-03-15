@@ -1,15 +1,32 @@
 {
-  "name": "tadelakt-website",
+  "name": "mixedbeachtour-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export",
+    "lint": "eslint --fix . && echo 'Lint complete.'"
   },
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "classnames": "^2.2.6",
+    "include-media": "^1.4.9",
+    "lodash": "^4.17.15",
     "next": "9.2.2",
+    "next-seo": "^4.4.0",
+    "node-sass": "^4.13.1",
+    "prop-types": "^15.7.2",
     "react": "16.12.0",
     "react-dom": "16.12.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.4.0",
+    "prettier": "^1.19.1"
   }
 }

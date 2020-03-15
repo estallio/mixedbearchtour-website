@@ -1,0 +1,98 @@
+@import ../style/variables
+
+.menu
+  margin-top: 160px
+  margin-left: 10px
+  font-family: 'Roboto', sans-serif
+
+.menu_entry
+  text-decoration: none
+  color: #000000
+  letter-spacing: 0.5px
+  font-size: 16px
+  display: flex
+  align-items: center
+  width: 160px
+  height: 60px
+  margin-top: 15px
+  position: relative
+  z-index: 2
+  &:after
+    background-color: #ffffff
+    content: ""
+    display: block
+    position: absolute
+    z-index: -1
+    width: 150px
+    height: 55px
+    border-radius: $general-border-radius
+    box-shadow: $general-box-shadow
+  & .socialIcon
+    display: block
+    z-index: 1
+    margin-left: 20px
+    margin-right: 10px
+    width: 30px
+    height: 30px
+    background-image: url("/media/images/social_icons.png")
+    background-repeat: no-repeat
+    background-size: 100%
+
+.anmelden
+  &:after
+    margin-left: 5px
+    margin-top: 1px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(3deg) rotateX(-25deg) rotateZ(1deg)
+  & .socialIcon
+    background-position: 0px 0px
+    margin-bottom: 6px
+
+.email
+  &:after
+    margin-left: -5px
+    margin-top: -3px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(-5deg) rotateX(30deg) rotateZ(-1deg)
+  & .socialIcon
+    background-position: 0px -30px
+
+.instagram
+  &:after
+    margin-left: 5px
+    margin-top: 1px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(10deg) rotateX(-30deg) rotateZ(1deg)
+  & .socialIcon
+    background-position: 0px -60px
+
+.facebook
+  &:after
+    margin-left: 0px
+    margin-top: 1px
+    height: 50px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(-5deg) rotateX(-20deg) rotateZ(-1deg)
+  & .socialIcon
+    background-position: 0px -90px
+
+.whatsapp
+  &:after
+    margin-left: 0px
+    margin-top: 0px
+    height: 50px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(-5deg) rotateX(0deg) rotateZ(1deg)
+  & .socialIcon
+    background-position: 0px -120px
+
+.raiffeisen
+  justify-content: center
+  height: 120px
+  flex-wrap: wrap
+  align-content: center
+  margin-top: 15px
+  & .raiffeisenText
+    color: #EE3124
+    font-size: 22px
+    margin-top: 10px
+  &:after
+    height: 120px
+    margin-left: -5px
+    margin-top: -10px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(-8deg) rotateX(25deg) rotateZ(-1deg)

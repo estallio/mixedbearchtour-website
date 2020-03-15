@@ -1,0 +1,236 @@
+@import ../components/style/variables
+@import ~include-media/dist/_include-media.scss
+
+$breakpoints: (phone: 20em, tablet: 48em, desktop: 64em)
+
+.welcome
+  margin-top: 100px
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  width: 100%
+  box-sizing: border-box
+  height: 150px
+  position: relative
+  z-index: 3
+  &:after
+    background-color: #EE3124
+    content: ""
+    display: block
+    position: absolute
+    z-index: -1
+    width: 98%
+    height: 120px
+    border-radius: $general-border-radius
+    box-shadow: $general-box-shadow
+    margin-left: -1.5%
+    margin-top: -2px
+    transform: translate3d(0,0,-30px) perspective(500px) rotateY(-3deg) rotateX(-10deg) rotateZ(0deg)
+  @include media(">1100px")
+    &:after
+      height: 130px
+      margin-top: 2px
+
+.welcomeTitle
+  letter-spacing: 1.2px
+  font-size: 45px
+  margin-top: 0px
+  line-height: 48px
+  font-family: 'Roboto', sans-serif
+  position: relative
+  color: #ffffff
+  z-index: 2
+  @include media(">1100px")
+    font-size: 55px
+    line-height: 60px
+
+
+.welcomeText
+  letter-spacing: 0.6px
+  font-size: 25px
+  font-family: 'Roboto', sans-serif
+  box-sizing: border-box
+  text-align: center
+  line-height: 35px
+  margin-top: 0px
+  position: relative
+  color: #ffffff
+  z-index: 2
+  @include media(">1100px")
+    font-size: 28px
+    line-height: 35px
+
+.mbt
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 100%
+  flex-direction: column
+  padding: 20px
+  box-sizing: border-box
+  margin-top: 5px
+  height: 100px
+  position: relative
+  z-index: 3
+  &:after
+    background-color: #ffffff
+    content: ""
+    display: block
+    position: absolute
+    z-index: -1
+    width: 98%
+    height: 120px
+    border-radius: $general-border-radius
+    box-shadow: $general-box-shadow
+    margin-left: -1.5%
+    margin-top: -1px
+    transform: translate3d(0,0,-30px) perspective(500px) rotateY(-3deg) rotateX(10deg) rotateZ(0deg)
+  @include media(">1100px")
+    margin-top: 20px
+    &:after
+      height: 130px
+
+.mbtRaiffeisenTitle
+  letter-spacing: 0.6px
+  font-size: 22px
+  display: flex
+  text-align: start
+  flex: 1
+  width: 450px
+  align-items: start
+  justify-content: start
+  font-family: 'Roboto', sans-serif
+  box-sizing: border-box
+  line-height: 30px
+  height: 100px
+  margin-left: 31px
+  position: relative
+  color: #EE3124
+  margin-top: -5px
+  z-index: 2
+  @include media(">1000px")
+    font-size: 26px
+    margin-left: -31px
+    margin-top: -10px
+  @include media(">1100px")
+    margin-left: -126px
+    margin-top: -10px
+
+.mbtTitle
+  letter-spacing: 0.6px
+  font-size: 50px
+  display: flex
+  flex: 1
+  align-items: center
+  margin-top: 8px
+  justify-content: center
+  font-family: 'Roboto', sans-serif
+  width: 100%
+  box-sizing: border-box
+  text-align: center
+  line-height: 30px
+  height: 100px
+  color: #000000
+  @include media(">1000px")
+    font-size: 58px
+    margin-top: 15px
+  @include media(">1100px")
+    font-size: 70px
+
+.intro
+  margin-top: 30px
+  margin-bottom: 20px
+  width: 100%
+  background-color: #ffffff
+  box-sizing: border-box
+  border-radius: 15px
+  font-family: 'Open Sans', sans-serif
+  color: #000000
+  font-size: 17px
+  letter-spacing: 0.3px
+  line-height: 24px
+  display: flex
+  box-shadow: 0 0 6px 2px rgba(51, 51, 51, 0.5)
+  @include media(">1100px")
+    margin-top: 35px
+  & .introLeft
+    width: 45%
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    background-color: #333333
+    color: #ffffff
+    border-top-left-radius: 14px
+    border-bottom-left-radius: 14px
+    box-sizing: border-box
+    & .timespan
+      font-size: 25px
+      @include media(">1000px")
+        font-size: 35px
+    & .year
+      font-size: 70px
+      line-height: 90px
+      @include media(">1000px")
+        font-size: 100px
+  & .introRight
+    padding: 10px 20px
+    display: flex
+    justify-content: center
+    flex-direction: column
+    box-sizing: border-box
+    width: 55%
+    @include media(">1000px")
+      padding: 15px 35px
+    @include media(">1100px")
+      padding: 20px 45px
+
+.organisation
+  margin-top: 15px
+  margin-bottom: 20px
+  width: 100%
+  background-color: #ffffff
+  box-sizing: border-box
+  border-radius: 15px
+  font-family: 'Open Sans', sans-serif
+  color: #000000
+  font-size: 17px
+  letter-spacing: 0.3px
+  line-height: 24px
+  display: flex
+  box-shadow: 0 0 6px 2px rgba(51, 51, 51, 0.5)
+  & .right
+    & img
+      height: 150px
+    width: 40%
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    box-sizing: border-box
+    & .timespan
+      font-size: 25px
+      @include media(">1000px")
+        font-size: 35px
+    & .year
+      font-size: 70px
+      line-height: 90px
+      @include media(">1000px")
+        font-size: 100px
+  & .left
+    padding: 10px 20px
+    display: flex
+    justify-content: center
+    flex-direction: column
+    box-sizing: border-box
+    width: 60%
+    @include media(">1000px")
+      padding: 15px 35px
+    @include media(">1100px")
+      padding: 20px 45px
+    & .more
+      margin-top: 20px
+      & .terminLink
+        color: #000000
+        margin-left: 5px

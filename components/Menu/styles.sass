@@ -1,0 +1,77 @@
+@import ../style/variables
+
+.menu
+  margin-top: 35px
+  margin-left: 5px
+  font-family: 'Roboto', sans-serif
+
+.menu_entry
+  text-decoration: none
+  color: #000000
+  letter-spacing: 0.5px
+  font-size: 24px
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 160px
+  height: 60px
+  margin-top: 15px
+  z-index: 5
+  position: relative
+  &:after
+    background-color: #ffffff
+    content: ""
+    display: block
+    position: absolute
+    z-index: -1
+    width: 150px
+    height: 55px
+    border-radius: $general-border-radius
+    box-shadow: $general-box-shadow
+  &.active,
+  &:hover
+    color: #ffffff
+    &:after
+      background-color: #EE3124
+
+.start
+  &:after
+    margin-left: 5px
+    margin-top: 0px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(5deg) rotateX(-30deg) rotateZ(-1deg)
+
+.standorte
+  &:after
+    margin-left: -3px
+    margin-top: 0px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(-5deg) rotateX(-30deg) rotateZ(1deg)
+
+.termine
+  &:after
+    margin-left: -2px
+    margin-top: -3px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(-5deg) rotateX(30deg) rotateZ(-1deg)
+
+.regeln
+  &:after
+    margin-left: -5px
+    margin-top: 0px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(-3deg) rotateX(-30deg) rotateZ(-1deg)
+
+.preise
+  &:after
+    margin-left: 2px
+    margin-top: -2px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(5deg) rotateX(30deg) rotateZ(1deg)
+
+.partner
+  &:after
+    margin-left: -5px
+    margin-top: 1px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(-5deg) rotateX(-30deg) rotateZ(1deg)
+
+.kontakt
+  &:after
+    margin-left: -5px
+    margin-top: -3px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(-5deg) rotateX(30deg) rotateZ(-1deg)

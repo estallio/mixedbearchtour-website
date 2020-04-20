@@ -30,7 +30,7 @@ const Start = () => (
       <div className={styles.intro}>
         <div className={styles.introLeft}>
           <div className={styles.timespan}>
-            <span>02.05 - 20.09</span>
+            <span>06.06 - 27.09</span>
           </div>
           <div className={styles.year}>2020</div>
         </div>

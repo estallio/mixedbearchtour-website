@@ -1,9 +1,11 @@
 const withSass = require('@zeit/next-sass');
 
 module.exports = withSass({
-  cssModules: true,
+  target: 'serverless',
   exportTrailingSlash: false,
-  exportPathMap: function() {
+  cssModules: true,
+  distDir: 'build',
+  exportPathMap: () => {
     return {
       '/': { page: '/' },
       '/standorte.html': { page: '/standorte' },

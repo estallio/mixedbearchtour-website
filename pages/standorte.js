@@ -25,9 +25,9 @@ const Start = () => (
             <p>8610 Uster</p>
           </div>
           <div className={styles.right}>
-            <p>02. - 03. Mai</p>
-            <p>16. - 17. Mai</p>
-            <p>23. - 24. Mai</p>
+            <p>18.-19. Juni</p>
+            <p>15.-16. August</p>
+            <p>26.-17. September</p>
           </div>
         </div>
         <div className={styles.entry}>
@@ -37,9 +37,9 @@ const Start = () => (
             <p>5400 Baden</p>
           </div>
           <div className={styles.right}>
-            <p>06. - 07. Juni</p>
-            <p>04. - 05. Juli</p>
-            <p>01. - 02. August</p>
+            <p>04.-05. Juli</p>
+            <p>11.-12. Juli</p>
+            <p>01.-02. August</p>
           </div>
         </div>
         <div className={styles.entry}>
@@ -49,8 +49,10 @@ const Start = () => (
             <p>8702 Zollikon</p>
           </div>
           <div className={styles.right}>
-            <p>13. - 14. Juni</p>
-            <p>18. - 19. Juli</p>
+            <p>06.-07. Juni</p>
+            <p>13.-14. Juni</p>
+            <p>20.-21. Juni</p>
+            <p>27.-28. Juni</p>
           </div>
         </div>
         <div className={styles.entry}>
@@ -72,7 +74,7 @@ const Start = () => (
             <p>8057 Zürich</p>
           </div>
           <div className={styles.right}>
-            <p>8.-9. August</p>
+            <p>08.-09. August</p>
           </div>
         </div>
         <div className={styles.entry}>

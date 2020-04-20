@@ -16,7 +16,7 @@ const Layout = ({ children }) => (
         Info: Leider mussten wir durch die Maßnahmen der Regierung unsere
         Termine anpassen. Alle Termine auf dieser Homepage wurden angepasst und
         sind aktuell. Sollte sich noch etwas an den Terminen ändern werden wir
-        es hier und auf Facebook bekanngeben und dementsprechend anpassen.
+        es hier und auf Facebook bekanntgeben und dementsprechend anpassen.
         Vielen Dank fürs Dranbleiben!
       </div>
     </div>

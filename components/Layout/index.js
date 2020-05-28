@@ -11,6 +11,7 @@ import styles from './styles.sass';
 
 const Layout = ({ children }) => (
   <div className={styles.site}>
+    {/* this is for banner texts:
     <div className={styles.banner}>
       <div className={styles.inner}>
         Info: Leider mussten wir durch die Maßnahmen der Regierung unsere
@@ -20,6 +21,7 @@ const Layout = ({ children }) => (
         Vielen Dank fürs Dranbleiben!
       </div>
     </div>
+    */}
     <div className={styles.main}>
       <div className={styles.left}>
         <LeftColumn />

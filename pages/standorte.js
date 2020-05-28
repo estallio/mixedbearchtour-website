@@ -25,7 +25,7 @@ const Start = () => (
             <p>8610 Uster</p>
           </div>
           <div className={styles.right}>
-            <p>18.-19. Juni</p>
+            <p>18.-19. Juli</p>
             <p>15.-16. August</p>
             <p>26.-17. September</p>
           </div>
@@ -49,10 +49,11 @@ const Start = () => (
             <p>8702 Zollikon</p>
           </div>
           <div className={styles.right}>
-            <p>06.-07. Juni</p>
             <p>13.-14. Juni</p>
             <p>20.-21. Juni</p>
             <p>27.-28. Juni</p>
+            <p>08.-09. August</p>
+            <p>05.-06. September</p>
           </div>
         </div>
         <div className={styles.entry}>
@@ -65,16 +66,6 @@ const Start = () => (
             <p>26. Juli</p>
             <p>23. August</p>
             <p>13. September</p>
-          </div>
-        </div>
-        <div className={styles.entry}>
-          <div className={styles.left}>
-            <p className={styles.ort}>Zürich Freibad Allenmoss</p>
-            <p>Ringstrasse 79</p>
-            <p>8057 Zürich</p>
-          </div>
-          <div className={styles.right}>
-            <p>08.-09. August</p>
           </div>
         </div>
         <div className={styles.entry}>

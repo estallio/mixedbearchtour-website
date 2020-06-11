@@ -53,7 +53,7 @@ const Start = () => (
             <p>20.-21. Juni</p>
             <p>27.-28. Juni</p>
             <p>05.-06. September</p>
-            <p>26.-17. September</p>
+            <p>26.-27. September</p>
           </div>
         </div>
         <div className={styles.entry}>

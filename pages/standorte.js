@@ -26,8 +26,8 @@ const Start = () => (
           </div>
           <div className={styles.right}>
             <p>18.-19. Juli</p>
+            <p>08.-09. August</p>
             <p>15.-16. August</p>
-            <p>26.-17. September</p>
           </div>
         </div>
         <div className={styles.entry}>
@@ -52,8 +52,8 @@ const Start = () => (
             <p>13.-14. Juni</p>
             <p>20.-21. Juni</p>
             <p>27.-28. Juni</p>
-            <p>08.-09. August</p>
             <p>05.-06. September</p>
+            <p>26.-17. September</p>
           </div>
         </div>
         <div className={styles.entry}>

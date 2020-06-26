@@ -203,19 +203,19 @@ const Start = () => (
           </tr>
           <tr>
             <td>Sa, 05. September 2020</td>
-            <td>Zollikon, Freibad Fohrbach</td>
-            <td>2</td>
-            <td></td>
+            <td>Obfelden, Zendenfrei</td>
+            <td>3</td>
+            <td>8</td>
             <td>16</td>
             <td></td>
           </tr>
           <tr>
             <td>So, 06. September 2020</td>
-            <td>Zollikon, Freibad Fohrbach</td>
-            <td>2</td>
-            <td>8</td>
+            <td>Obfelden, Zendenfrei</td>
+            <td>3</td>
             <td></td>
             <td>8</td>
+            <td>16</td>
           </tr>
           <tr>
             <td>So, 13. September 2020</td>
@@ -227,19 +227,19 @@ const Start = () => (
           </tr>
           <tr>
             <td>Sa, 19. September 2020</td>
-            <td>Obfelden, Zendenfrei</td>
-            <td>3</td>
-            <td>8</td>
+            <td>Zollikon, Freibad Fohrbach</td>
+            <td>2</td>
+            <td></td>
             <td>16</td>
             <td></td>
           </tr>
           <tr>
             <td>So, 20. September 2020</td>
-            <td>Obfelden, Zendenfrei</td>
-            <td>3</td>
+            <td>Zollikon, Freibad Fohrbach</td>
+            <td>2</td>
+            <td>8</td>
             <td></td>
             <td>8</td>
-            <td>16</td>
           </tr>
           <tr>
             <td>Sa, 26. September 2020</td>

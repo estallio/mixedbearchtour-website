@@ -1,43 +1,20 @@
 {
   "name": "mixedbeachtour-website",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export",
-    "lint": "eslint --fix . && echo 'Lint complete.'"
+  "author": "Leonhard Esterbauer <leonhard.esterbauer@gmail.com>",
+  "engines": {
+    "node": "10.x"
   },
-  "dependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.7",
-    "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
-    "@zeit/next-sass": "^1.0.1",
-    "classnames": "^2.2.6",
-    "dotenv": "^8.2.0",
-    "include-media": "^1.4.9",
-    "lodash": "^4.17.15",
-    "next": "9.2.2",
-    "next-manifest": "^3.0.1",
-    "next-seo": "^4.4.0",
-    "node-sass": "^4.13.1",
-    "npm-run-all": "^4.1.5",
-    "prop-types": "^15.7.2",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
-    "request": "^2.88.2",
-    "request-promise-native": "^1.0.8",
-    "rimraf": "^3.0.2",
-    "uuid": "^7.0.2"
+  "scripts": {
+    "dev": "lerna run dev --parallel",
+    "build": "lerna run build",
+    "clean": "lerna clean",
+    "deploy": "lerna run deploy",
+    "empty-cache": "lerna run empty-cache"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-react-hooks": "^2.4.0",
-    "prettier": "^1.19.1"
+    "lerna": "^3.14.1",
+    "rimraf": "^2.6.3"
   }
 }

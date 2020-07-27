@@ -1,12 +1,7 @@
 import React from 'react';
 
-import _ from 'lodash';
-import moment from 'moment';
-moment.locale('de');
-
-import BlockContent from '@sanity/block-content-to-react';
-
-import { fetchContact, getClient, serializers } from '../lib/api';
+import { fetchVenues } from '../lib/api';
+import ExtendedBlockContent from '../lib/ExtendedBlockContent';
 
 import DefaultHeader from '../components/DefaultHeader';
 import Layout from '../components/Layout';
@@ -14,37 +9,7 @@ import Layout from '../components/Layout';
 import styles from './standorte.sass';
 
 export async function getStaticProps({ preview = false }) {
-  const resultStandorte = await getClient(preview).fetch(
-    `*[ _type == "standort" ]`
-  );
-
-  const resultTermine = await getClient(preview).fetch(
-    `*[ _type == "termin" ]{ ..., ort-> } | order(datum asc)`
-  );
-
-  const orte = _.map(resultStandorte, ort => {
-    const termineAmStandort = _.filter(
-      resultTermine,
-      termin => termin.ort._id === ort._id
-    );
-    const termineInArrayForm = _.map(termineAmStandort, termin =>
-      moment(termin.datum).format('DD. MMMM')
-    );
-
-    return {
-      name: ort.name,
-      adresse: ort.addresse,
-      termine: termineInArrayForm
-    };
-  });
-
-  return {
-    props: {
-      orte,
-      contact: await fetchContact(preview),
-      preview
-    }
-  };
+  return { props: await fetchVenues(preview) };
 }
 
 const Start = ({ orte, contact, preview }) => (
@@ -63,7 +28,7 @@ const Start = ({ orte, contact, preview }) => (
           <div className={styles.entry} key={ort.name}>
             <div className={styles.left}>
               <p className={styles.ort}>{ort.name}</p>
-              <BlockContent serializers={serializers} blocks={ort.adresse} />
+              <ExtendedBlockContent blocks={ort.adresse} />
             </div>
             <div className={styles.right}>
               {ort.termine.map(datum => (

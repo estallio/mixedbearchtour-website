@@ -1,4 +1,4 @@
-const previewSecret = '@AxiAWeD*bbVf!MxVGXXBhGtmiju78MW';
+const previewSecret = 'MxVGXXBhGtmiju78MWMxVGXXBhGtmiju78MW';
 const projectUrl = 'http://localhost:3000';
 
 export default function resolveProductionUrl(document) {

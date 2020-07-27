@@ -1,8 +1,7 @@
 import React from 'react';
 
-import BlockContent from '@sanity/block-content-to-react';
-
-import { fetchContact, getClient, serializers } from '../lib/api';
+import { fetchPrizes } from '../lib/api';
+import ExtendedBlockContent from '../lib/ExtendedBlockContent';
 
 import DefaultHeader from '../components/DefaultHeader';
 import Layout from '../components/Layout';
@@ -10,17 +9,7 @@ import Layout from '../components/Layout';
 import styles from './preise.sass';
 
 export async function getStaticProps({ preview = false }) {
-  const resultPrizes = await getClient(preview).fetch(
-    `*[_type == 'preise'] { prizesText }`
-  );
-
-  return {
-    props: {
-      text: resultPrizes[0].prizesText,
-      contact: await fetchContact(preview),
-      preview
-    }
-  };
+  return { props: await fetchPrizes(preview) };
 }
 
 const Start = ({ text, contact, preview }) => (
@@ -35,7 +24,7 @@ const Start = ({ text, contact, preview }) => (
         <span>Preise</span>
       </div>
       <div className={styles.wrapper}>
-        <BlockContent serializers={serializers} blocks={text} />
+        <ExtendedBlockContent blocks={text} />
       </div>
     </Layout>
   </>

@@ -1,7 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder';
 import anmelden from './schemas/anmelden'
 import kontakt from './schemas/kontakt'
-import partner from './schemas/partner'
 import preise from './schemas/preise'
 import regeln from './schemas/regeln'
 import startseite from './schemas/startseite'

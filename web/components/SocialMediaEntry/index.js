@@ -1,9 +1,8 @@
 import React from 'react';
 
-import BlockContent from '@sanity/block-content-to-react';
+import ExtendedBlockContent from '../../lib/ExtendedBlockContent';
 
 import styles from './styles.sass';
-import { serializers } from '../../lib/api';
 
 const SocialMediaEntry = ({ contact }) => (
   <div className={styles.contentBox}>
@@ -16,10 +15,7 @@ const SocialMediaEntry = ({ contact }) => (
       </a>
     </div>
     <div className={styles.right}>
-      <BlockContent
-        serializers={serializers}
-        blocks={contact.socialMediaText}
-      />
+      <ExtendedBlockContent blocks={contact.socialMediaText} />
     </div>
   </div>
 );

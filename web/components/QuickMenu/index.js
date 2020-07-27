@@ -1,7 +1,10 @@
-import styles from './styles.sass';
-import Link from '../external/Link';
 import React from 'react';
+
 import classNames from 'classnames';
+
+import Link from '../external/Link';
+
+import styles from './styles.sass';
 
 const QuickMenu = ({ contact }) => (
   <div className={styles.menu}>

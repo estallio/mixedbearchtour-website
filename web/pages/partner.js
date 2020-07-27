@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { fetchContact, getClient } from '../lib/api';
-import { imageBuilder } from '../lib/sanity';
-
 import classNames from 'classnames';
+
+import { fetchPartner, getImageBuilder } from '../lib/api';
 
 import DefaultHeader from '../components/DefaultHeader';
 import Layout from '../components/Layout';
@@ -11,17 +10,7 @@ import Layout from '../components/Layout';
 import styles from './partner.sass';
 
 export async function getStaticProps({ preview = false }) {
-  const resultPartner = await getClient(preview).fetch(
-    `*[_type == 'partner'] { name, "imageUrl": logo.asset->url, url }`
-  );
-
-  return {
-    props: {
-      partner: resultPartner,
-      contact: await fetchContact(preview),
-      preview
-    }
-  };
+  return { props: await fetchPartner(preview) };
 }
 
 const Start = ({ partner, contact, preview }) => (
@@ -58,7 +47,11 @@ const Start = ({ partner, contact, preview }) => (
               rel="noreferrer"
             >
               <div className={styles.imageWrapper}>
-                <img src={imageBuilder.image(p.imageUrl).url()} />
+                <img
+                  src={getImageBuilder()
+                    .image(p.imageUrl)
+                    .url()}
+                />
               </div>
               <span>{p.name}</span>
             </a>

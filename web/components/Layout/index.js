@@ -14,14 +14,8 @@ const Layout = ({ preview, contact, children }) => (
     {preview ? (
       <div className={styles.previewBanner}>
         <div className={styles.inner}>
-          Das ist eine Vorschau.{' '}
-          <a
-            href="/api/exit-preview"
-            className="underline hover:text-cyan duration-200 transition-colors"
-          >
-            Hier
-          </a>{' '}
-          klicken um Vorschau zu Beenden.
+          Das ist eine Vorschau. <a href="/api/exit-preview">Hier</a> klicken um
+          Vorschau zu Beenden.
         </div>
       </div>
     ) : null}

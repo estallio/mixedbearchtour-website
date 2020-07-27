@@ -1,12 +1,7 @@
 import React from 'react';
 
-import _ from 'lodash';
-import moment from 'moment';
-moment.locale('de');
-
-import BlockContent from '@sanity/block-content-to-react';
-
-import { fetchContact, getClient, serializers } from '../lib/api';
+import { fetchStart } from '../lib/api';
+import ExtendedBlockContent from '../lib/ExtendedBlockContent';
 
 import DefaultHeader from '../components/DefaultHeader';
 import Layout from '../components/Layout';
@@ -14,36 +9,7 @@ import Layout from '../components/Layout';
 import styles from './index.sass';
 
 export async function getStaticProps({ preview = false }) {
-  const resultStartseite = await getClient(preview).fetch(
-    `*[_type == 'startseite'] { introGeneral, introTextTournaments }`
-  );
-
-  const resultStartEndTournament = await getClient(preview).fetch(
-    `*[_type == 'termin'] | order(datum asc)`
-  );
-
-  const firstTournamentDate = moment(
-    _.isEmpty(resultStartEndTournament)
-      ? moment().format('YYYY') + '-01-01'
-      : _.first(resultStartEndTournament).datum
-  );
-  const lastTournamentDate = moment(
-    _.isEmpty(resultStartEndTournament)
-      ? moment().format('YYYY') + '-12-31'
-      : _.last(resultStartEndTournament).datum
-  );
-
-  return {
-    props: {
-      introGeneral: resultStartseite[0].introGeneral,
-      introTextTournaments: resultStartseite[0].introTextTournaments,
-      firstTournamentDate: firstTournamentDate.format('DD.MM'),
-      lastTournamentDate: lastTournamentDate.format('DD.MM'),
-      tournamentYear: firstTournamentDate.format('YYYY'),
-      contact: await fetchContact(preview),
-      preview
-    }
-  };
+  return { props: await fetchStart(preview) };
 }
 
 const Start = ({
@@ -86,16 +52,13 @@ const Start = ({
           <div className={styles.year}>{tournamentYear}</div>
         </div>
         <div className={styles.introRight}>
-          <BlockContent
-            serializers={serializers}
-            blocks={introTextTournaments}
-          />
+          <ExtendedBlockContent blocks={introTextTournaments} />
         </div>
       </div>
       <div className={styles.organisation}>
         <div className={styles.left}>
           <div>
-            <BlockContent serializers={serializers} blocks={introGeneral} />
+            <ExtendedBlockContent blocks={introGeneral} />
           </div>
         </div>
         <div className={styles.right}>

@@ -1,39 +1,17 @@
 import React from 'react';
 
-import _ from 'lodash';
-import moment from 'moment';
-moment.locale('de');
+import { fetchEvents } from '../lib/api';
 
 import DefaultHeader from '../components/DefaultHeader';
 import Layout from '../components/Layout';
 
 import styles from './termine.sass';
-import { fetchContact, getClient } from '../lib/api';
 
 export async function getStaticProps({ preview = false }) {
-  const resultTermine = await getClient(preview).fetch(
-    `*[ _type == "termin" ]{ ..., ort-> } | order(datum asc)`
-  );
-
-  const termine = _.map(resultTermine, termin => ({
-    datum: moment(termin.datum).format('dd, DD. MMMM YYYY'),
-    ort: termin.ort.shortName,
-    courts: termin.courts,
-    mixa: termin.mixa || null,
-    mixb: termin.mixb || null,
-    mixc: termin.mixc || null
-  }));
-
-  return {
-    props: {
-      termine,
-      contact: await fetchContact(preview),
-      preview
-    }
-  };
+  return { props: await fetchEvents(preview) };
 }
 
-const Start = ({ termine, contact, preview }) => (
+const Start = ({ events, contact, preview }) => (
   <>
     <DefaultHeader
       title="Termine | Mixed Beach-Tour"
@@ -54,7 +32,7 @@ const Start = ({ termine, contact, preview }) => (
             <th>MixB</th>
             <th>MixC</th>
           </tr>
-          {termine.map(termin => (
+          {events.map(termin => (
             <tr key={termin.datum + termin.ort + termin.courts}>
               <td>{termin.datum}</td>
               <td>{termin.ort}</td>

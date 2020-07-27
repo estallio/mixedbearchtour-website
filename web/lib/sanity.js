@@ -11,14 +11,14 @@ const options = {
   // data always (potentially slightly slower and a bit more expensive).
 };
 
-const client = sanityClient(options);
-
-export const imageBuilder = sanityImage(client);
-
-export const previewClient = sanityClient({
+const previewOptions = {
   ...options,
   useCdn: false,
   token: process.env.SANITY_API_TOKEN
-});
+};
 
-export default client;
+export const client = sanityClient(options);
+export const imageBuilder = sanityImage(client);
+
+export const previewClient = sanityClient(previewOptions);
+export const previewImageBuilder = sanityImage(previewClient);

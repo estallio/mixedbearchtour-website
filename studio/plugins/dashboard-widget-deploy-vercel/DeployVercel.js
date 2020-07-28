@@ -26,7 +26,7 @@ const DeployVercel = () => {
   const [deployments, setDeployments] = useState([])
   const updateList = () => {
     // https://vercel.com/docs/api?query=api#endpoints/deployments/list-deployments
-    fetch(`https://api.vercel.com/v5/now/deployments?limit=5&projectId=`, {
+    fetch(`https://api.vercel.com/v5/now/deployments?limit=5&projectId=${process.env.SANITY_STUDIO_VERCEL_PROJECT_ID}`, {
       headers: {
         Authorization: `Bearer ${process.env.SANITY_STUDIO_VERCEL_TOKEN}`,
       },

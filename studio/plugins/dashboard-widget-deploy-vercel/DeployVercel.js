@@ -26,13 +26,19 @@ const DeployVercel = () => {
   const [deployments, setDeployments] = useState([])
   const updateList = () => {
     // https://vercel.com/docs/api?query=api#endpoints/deployments/list-deployments
-    fetch(`https://api.vercel.com/v5/now/deployments?limit=5&projectId=${process.env.SANITY_STUDIO_VERCEL_PROJECT_ID}`, {
-      headers: {
-        Authorization: `Bearer ${process.env.SANITY_STUDIO_VERCEL_TOKEN}`,
-      },
-    })
+    console.log(`${process.env.SANITY_STUDIO_DEPLOYED_DOMAIN}/api/getDeployments?secret=${process.env.SANITY_STUDIO_PREVIEW_SECRET}`);
+    fetch(`${process.env.SANITY_STUDIO_DEPLOYED_DOMAIN}/api/getDeployments?secret=${process.env.SANITY_STUDIO_PREVIEW_SECRET}`)
     .then(res => res.json())
-    .then(json => setDeployments(json.deployments))
+    .then(json => {
+      setDeployments(json.deployments);
+
+      if (deployments.length > 0 && deployments[0]) {
+        if (deployments[0].state !== "BUILDING") {
+          setJobId(null);
+          setDeploying(false);
+        }
+      }
+    })
   }
   useEffect(() => {
     updateList()
@@ -46,7 +52,7 @@ const DeployVercel = () => {
   const deploy = () => {
     setDeploying(true)
     // https://vercel.com/docs/v2/more/deploy-hooks?query=deploy%20hoo#triggering-a-deploy-hook
-    fetch(process.env.SANITY_STUDIO_VERCEL_DEPLOY_HOOK, { method: 'POST' })
+    fetch(`${process.env.SANITY_STUDIO_DEPLOYED_DOMAIN}/api/deploy?secret=${process.env.SANITY_STUDIO_PREVIEW_SECRET}`)
     .then(res => res.json())
     .then(json => {
       setJobId(json.job.id)

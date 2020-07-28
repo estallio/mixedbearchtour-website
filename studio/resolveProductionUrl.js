@@ -1,5 +1,5 @@
-const previewSecret = 'MxVGXXBhGtmiju78MWMxVGXXBhGtmiju78MW';
-const projectUrl = 'https://mixedbeachtour.ch';
+const previewSecret = `${process.env.SANITY_STUDIO_PREVIEW_SECRET}`;
+const projectUrl = `${process.env.SANITY_STUDIO_DEPLOYED_DOMAIN}`;
 
 export default function resolveProductionUrl(document) {
   switch(document._type) {

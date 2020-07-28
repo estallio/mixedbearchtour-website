@@ -7,8 +7,6 @@ import {
 import moment from 'moment';
 import _ from 'lodash';
 
-moment.locale('de');
-
 export const getClient = preview => (preview ? previewClient : client);
 
 export const getImageBuilder = preview =>
@@ -161,6 +159,8 @@ export const fetchRules = async preview => {
 };
 
 export const fetchVenues = async preview => {
+  moment.locale('de');
+
   const resultVenues = filterDrafts(
     await getClient(preview).fetch(`*[ _type == 'standort' ]`),
     preview

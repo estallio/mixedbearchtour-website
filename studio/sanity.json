@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "mixedbeachtour.ch"
+    "name": "mixedbeachtour.ch",
+    "basePath": "/studio"
   },
   "api": {
     "projectId": "hi354wp7",

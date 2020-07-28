@@ -23,6 +23,7 @@ function useInterval (callback, delay) {
 const DeployVercel = () => {
   const [deploying, setDeploying] = useState(false)
   const [jobId, setJobId] = useState(null)
+  const [deploymentStarted, setDeploymentStarted] = useState(false)
   const [deployments, setDeployments] = useState([])
   const updateList = () => {
     // https://vercel.com/docs/api?query=api#endpoints/deployments/list-deployments
@@ -33,7 +34,9 @@ const DeployVercel = () => {
       setDeployments(json.deployments);
 
       if (deployments.length > 0 && deployments[0]) {
-        if (deployments[0].state !== "BUILDING") {
+        if (deployments[0].state === "BUILDING") {
+          setDeploymentStarted(true);
+        } else if (deploymentStarted) {
           setJobId(null);
           setDeploying(false);
         }

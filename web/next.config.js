@@ -4,7 +4,7 @@ module.exports = withSass({
   target: 'serverless',
   exportTrailingSlash: false,
   cssModules: true,
-  // distDir: 'build',
+  // distDir: './public',
   exportPathMap: () => ({
     '/': { page: '/' },
     '/standorte.html': { page: '/standorte' },

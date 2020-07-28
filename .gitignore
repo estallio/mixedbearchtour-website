@@ -26,3 +26,5 @@ yarn-error.log*
 
 # lerna files
 lerna-debug.log
+
+.env.*

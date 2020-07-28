@@ -33,6 +33,7 @@ const DefaultHeader = ({ title, contact, description }) => (
       }}
     />
     <Head>
+      <meta name="viewport" content="width=1200, initial-scale=1" />
       <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:600&display=swap"
         rel="stylesheet"

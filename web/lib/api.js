@@ -1,11 +1,15 @@
+import _ from 'lodash';
+
+import moment from 'moment';
+import 'moment/locale/de';
+moment.locale('de');
+
 import {
   client,
   imageBuilder,
   previewClient,
   previewImageBuilder
 } from './sanity';
-import moment from 'moment';
-import _ from 'lodash';
 
 export const getClient = preview => (preview ? previewClient : client);
 
@@ -159,8 +163,6 @@ export const fetchRules = async preview => {
 };
 
 export const fetchVenues = async preview => {
-  moment.locale('de');
-
   const resultVenues = filterDrafts(
     await getClient(preview).fetch(`*[ _type == 'standort' ]`),
     preview

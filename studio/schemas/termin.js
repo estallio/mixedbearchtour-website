@@ -1,3 +1,7 @@
+import moment from 'moment';
+import 'moment/locale/de';
+moment.locale('de');
+
 export default {
   title: 'Termine',
   name: 'termin',
@@ -54,5 +58,12 @@ export default {
       title: 'datum',
       subtitle: 'ort.shortName',
     },
+    prepare(selection) {
+      const { title, subtitle } = selection
+      return {
+        title: moment(title).format('DD.MM.YYYY'),
+        subtitle: subtitle
+      }
+    }
   }
 }

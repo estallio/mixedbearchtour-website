@@ -1,20 +1,8 @@
-const withSass = require('@zeit/next-sass');
+const withOptimizedImages = require('next-optimized-images');
 
-module.exports = withSass({
-  target: 'serverless',
-  exportTrailingSlash: false,
-  cssModules: true,
-  // distDir: './public',
-  exportPathMap: () => ({
-    '/': { page: '/' },
-    '/standorte.html': { page: '/standorte' },
-    '/termine.html': { page: '/termine' },
-    '/regeln.html': { page: '/regeln' },
-    '/preise.html': { page: '/preise' },
-    '/partner.html': { page: '/partner' },
-    '/kontakt.html': { page: '/kontakt' },
-    '/datenschutz.html': { page: '/datenschutz' },
-    '/impressum.html': { page: '/impressum' },
-    '/anmelden.html': { page: '/anmelden' }
-  })
+module.exports = withOptimizedImages({
+  optimizeImagesInDev: true,
+  responsive: {
+    adapter: require('responsive-loader/sharp'),
+  },
 });

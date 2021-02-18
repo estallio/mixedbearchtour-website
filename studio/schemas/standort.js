@@ -1,6 +1,9 @@
+import { GoLocation } from 'react-icons/go';
+
 export default {
-  title: 'Standorte',
+  title: 'Standort',
   name: 'standort',
+  icon: GoLocation,
   type: 'document',
   __experimental_actions: ['update', 'publish', 'create', 'delete'],
   fields: [
@@ -17,20 +20,13 @@ export default {
     {
       title: 'Adresse',
       name: 'addresse',
-      type: 'array',
-      of: [
-        {
-          type: 'block',
-          styles: [],
-          lists: [],
-          marks: {
-            decorators: [
-              { title: 'Strong', value: 'strong' },
-              { title: 'Underline', value: 'underline' },
-            ],
-          },
-        },
-      ],
+      type: 'simpleEditor',
+    },
+    {
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+      hidden: true,
     },
   ],
   preview: {

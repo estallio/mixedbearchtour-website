@@ -10,14 +10,14 @@ export default {
       type: 'string',
     },
     {
-      title: 'Logo',
-      name: 'logo',
-      type: 'image',
-    },
-    {
       title: 'URL',
       name: 'url',
       type: 'string',
+    },
+    {
+      title: 'Logo',
+      name: 'logo',
+      type: 'image',
     },
   ],
   preview: {

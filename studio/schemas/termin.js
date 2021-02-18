@@ -1,5 +1,6 @@
 import moment from 'moment';
 import 'moment/locale/de';
+
 moment.locale('de');
 
 export default {
@@ -46,10 +47,17 @@ export default {
   ],
   orderings: [
     {
-      title: 'Datum',
-      name: 'datum',
+      title: 'Datum aufsteigend',
+      name: 'dateAsc',
       by: [
-        {field: 'datum', direction: 'desc'}
+        { field: 'datum', direction: 'asc' }
+      ]
+    },
+    {
+      title: 'Datum absteigend',
+      name: 'dateDesc',
+      by: [
+        { field: 'datum', direction: 'desc' }
       ]
     },
   ],

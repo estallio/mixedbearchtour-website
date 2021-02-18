@@ -2,7 +2,7 @@ export default {
   title: 'Kontakt',
   name: 'kontakt',
   type: 'document',
-  __experimental_actions: ['update', 'publish' /* 'create', 'delete' */],
+  __experimental_actions: ['update', 'publish', 'create'],
   fields: [
     {
       title: 'E-Mail Adresse',
@@ -68,42 +68,7 @@ export default {
     {
       title: 'Social Media Text',
       name: 'socialMediaText',
-      type: 'array',
-      of: [
-        {
-          type: 'block',
-          styles: [
-            {title: 'Normal', value: 'normal'},
-            {title: 'H2', value: 'h2'},
-          ],
-          lists: [],
-          marks: {
-            decorators: [
-              { title: 'Strong', value: 'strong' },
-              { title: 'Underline', value: 'underline' },
-            ],
-            annotations: [
-              {
-                name: 'link',
-                type: 'object',
-                title: 'Link',
-                fields: [
-                  {
-                    name: 'href',
-                    type: 'url',
-                    title: 'URL'
-                  },
-                  {
-                    title: 'In neuem Tab öffnen',
-                    name: 'blank',
-                    type: 'boolean'
-                  }
-                ]
-              }
-            ],
-          },
-        },
-      ],
+      type: 'simpleEditor',
     },
   ],
 }

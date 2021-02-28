@@ -6,7 +6,7 @@ export default {
   fields: [
     {
       title: 'Partner',
-      name: 'partner',
+      name: 'partners',
       type: 'array',
       of: [ { type: 'partner' } ],
     }

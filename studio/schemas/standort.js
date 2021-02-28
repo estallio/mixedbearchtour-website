@@ -19,7 +19,7 @@ export default {
     },
     {
       title: 'Adresse',
-      name: 'addresse',
+      name: 'address',
       type: 'simpleEditor',
     },
     {

@@ -43,7 +43,7 @@ const pageItems = pageItemsIds.map(item => {
           .id(item.schemaId)
           .schemaType(item.schemaId)
           .defaultOrdering(
-            [{ field: 'date', direction: 'desc' }]
+            [{ field: 'date', direction: 'asc' }]
           )
         );
   }

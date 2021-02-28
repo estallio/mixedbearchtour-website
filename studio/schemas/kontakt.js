@@ -26,7 +26,7 @@ export default {
         },
         {
           title: 'URL',
-          name: 'url',
+          name: 'href',
           type: 'url',
         },
       ],
@@ -43,7 +43,7 @@ export default {
         },
         {
           title: 'URL',
-          name: 'url',
+          name: 'href',
           type: 'url',
         },
       ],
@@ -60,7 +60,7 @@ export default {
         },
         {
           title: 'URL',
-          name: 'url',
+          name: 'href',
           type: 'url',
         },
       ],
@@ -69,6 +69,11 @@ export default {
       title: 'Social Media Text',
       name: 'socialMediaText',
       type: 'simpleEditor',
+    },
+    {
+      title: 'Zusätzlicher Kontakt Text',
+      name: 'contactText',
+      type: 'richEditor',
     },
   ],
 }

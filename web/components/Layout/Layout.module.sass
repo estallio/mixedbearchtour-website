@@ -1,38 +1,57 @@
-.main
-  display: flex
-  flex: 1
-  justify-content: center
-  padding-left: 20px
-  padding-right: 20px
-
-.center
-  min-width: 800px
-  max-width: 800px
-  padding-left: 40px
-  padding-right: 40px
-  box-sizing: border-box
-  z-index: 3
+@import components/style/variables
+@import ~include-media/dist/_include-media.scss
 
 .site
   display: flex
   min-height: 100vh
   flex-direction: column
   background-color: #333333
-  min-width: 960px
   overflow: hidden
+  @include media(">phone")
+    min-width: 700px
+  @include media(">tablet")
+    min-width: 960px
   &:after
-    display: block
     content: ''
+    display: block
     position: absolute
     z-index: 1
     width: 100%
-    min-width: 960px
     height: 800px
     background-image: linear-gradient(to bottom, rgba(51,51,51,0) 200px, rgba(51,51,51,1) 800px), url('/media/images/natur-strand-baum-blauer-himmel.jpg')
     background-position: 100% 50%
     background-size: cover
     background-repeat: no-repeat
+    @include media(">tablet")
+      min-width: 960px
 
+.main
+  flex: 1
+  display: flex
+  justify-content: center
+  padding-left: 20px
+  padding-right: 20px
+
+.center
+  z-index: 3
+  max-width: 800px
+  box-sizing: border-box
+  margin-top: 150px
+  @include media(">phone")
+    padding-left: 40px
+    padding-right: 40px
+
+.left
+  position: absolute
+  left: 50px
+  @include media(">phone")
+    left: inherit
+    position: relative
+
+.right
+  display: none
+  @include media(">desktop")
+    display: block
 
 .banner
   display: block
@@ -46,7 +65,8 @@
   font-family: 'Open Sans', sans-serif
   letter-spacing: 0.3px
   .inner
-    min-width: 400px
+    @include media(">800px")
+      min-width: 400px
     max-width: 960px
     margin: 0 auto
 
@@ -62,7 +82,8 @@
   font-family: 'Open Sans', sans-serif
   letter-spacing: 0.3px
   .inner
-    min-width: 400px
+    @include media(">800px")
+      min-width: 400px
     max-width: 960px
     margin: 0 auto
     text-align: center

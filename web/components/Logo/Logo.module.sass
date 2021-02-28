@@ -1,12 +1,13 @@
-@import ../style/variables
+@import ~include-media/dist/_include-media.scss
+@import styles/variables
 
 .link
   display: block
   position: relative
+  z-index: 10001
   width: 180px
   height: 120px
   top: 10px
-
   &:after
     content: ""
     display: block
@@ -17,12 +18,12 @@
     z-index: 2
     background-color: #ffffff
     transform: perspective(500px) rotateY(-1deg) rotateX(-30deg) rotateZ(3deg)
-    border-radius: $general-border-radius
-    box-shadow: $general-box-shadow
+    // border-radius: $general-border-radius
+    // box-shadow: $general-box-shadow
 
 .image
   width: 140px
-  margin-top: 0px
+  margin-top: 0
   margin-left: 20px
   z-index: 3
   position: relative

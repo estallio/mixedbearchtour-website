@@ -1,223 +1,404 @@
-import _ from 'lodash';
+import { client } from './sanity';
 
-import moment from 'moment';
-import 'moment/locale/de';
-moment.locale('de');
-
-import {
-  client,
-  imageBuilder,
-  previewClient,
-  previewImageBuilder
-} from './sanity';
-
-export const getClient = preview => (preview ? previewClient : client);
-
-export const getImageBuilder = preview =>
-  preview ? previewImageBuilder : imageBuilder;
-
-export const filterDrafts = (entries, preview) => {
-  if (!preview) {
-    return entries.filter(entry => !entry._id.startsWith('drafts.'));
-  }
-
-  return entries.filter(entry => {
-    for (const tempEntry of entries) {
-      if (tempEntry._id !== entry._id && tempEntry._id.endsWith(entry._id)) {
-        return false;
+const fetchStartseite = async () => {
+  return await client.fetch(
+    `{
+      'contact': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] { mail, tel, whatsapp, facebook, instagram, socialMediaText },
+      'seo': *[!(_id in path("drafts.**")) && _type == 'seo'][0]{ seoStartseite },
+      'tournamentStart': *[!(_id in path("drafts.**")) && _type == 'termin'] | order(datum asc) { datum } [0],
+      'tournamentEnd': *[!(_id in path("drafts.**")) && _type == 'termin'] | order(datum desc) { datum } [0],
+      'startseite': *[!(_id in path("drafts.**")) && _type == 'startseite'][0] {
+        introTextTournaments[]{
+          ...,
+          _type == 'gallery' => {
+            images[]{
+              'imageUrl': asset->url,
+              'width': asset->metadata.dimensions.width,
+              'height': asset->metadata.dimensions.height,
+              'altText': asset->altText
+            }
+          },
+          _type == 'image' => {
+            'imageUrl': asset->url,
+            'width': asset->metadata.dimensions.width,
+            'height': asset->metadata.dimensions.height,
+            'altText': asset->altText
+          },
+          _type == 'block' => {
+            ...,
+            markDefs[] {
+              ...,
+              _type == 'link' => {
+                'linkUrl': href
+              },
+              _type == 'file' => {
+                'fileUrl': asset->url
+              },
+            }
+          }
+        },
+        introGeneral[]{
+          ...,
+          _type == 'gallery' => {
+            images[]{
+              'imageUrl': asset->url,
+              'width': asset->metadata.dimensions.width,
+              'height': asset->metadata.dimensions.height,
+              'altText': asset->altText
+            }
+          },
+          _type == 'image' => {
+            'imageUrl': asset->url,
+            'width': asset->metadata.dimensions.width,
+            'height': asset->metadata.dimensions.height,
+            'altText': asset->altText
+          },
+          _type == 'block' => {
+            ...,
+            markDefs[] {
+              ...,
+              _type == 'link' => {
+                'linkUrl': href
+              },
+              _type == 'file' => {
+                'fileUrl': asset->url
+              }
+            }
+          }
+        }
       }
-    }
-
-    return true;
-  });
+    }`
+  );
 };
 
-export const fetchContact = async preview => {
-  const result = filterDrafts(
-    await getClient(preview).fetch(`*[_type == 'kontakt']`),
-    preview
+const fetchImpressum = async () => {
+  return await client.fetch(
+    `{
+      'contact': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] { mail, tel, whatsapp, facebook, instagram, socialMediaText },
+      'seo': *[!(_id in path("drafts.**")) && _type == 'seo'][0]{ seoImpressum },
+      'impressum': *[!(_id in path("drafts.**")) && _type == 'impressum'][0] {
+        imprintText[]{
+          ...,
+          _type == 'gallery' => {
+            images[]{
+              'imageUrl': asset->url,
+              'width': asset->metadata.dimensions.width,
+              'height': asset->metadata.dimensions.height,
+              'altText': asset->altText
+            }
+          },
+          _type == 'image' => {
+            'imageUrl': asset->url,
+            'width': asset->metadata.dimensions.width,
+            'height': asset->metadata.dimensions.height,
+            'altText': asset->altText
+          },
+          _type == 'block' => {
+            ...,
+            markDefs[] {
+              ...,
+              _type == 'link' => {
+                'linkUrl': href
+              },
+              _type == 'file' => {
+                'fileUrl': asset->url
+              }
+            }
+          }
+        }
+      }
+    }`
   );
-
-  return {
-    mail: result[0].mail,
-    tel: result[0].tel,
-    whatsapp: result[0].whatsapp,
-    facebook: result[0].facebook,
-    instagram: result[0].instagram,
-    socialMediaText: result[0].socialMediaText,
-    preview
-  };
 };
 
-export const fetchRegister = async preview => {
-  let result = filterDrafts(
-    await getClient(preview).fetch(`*[_type == 'anmelden']`),
-    preview
+const fetchDataProtection = async () => {
+  return await client.fetch(
+    `{
+      'contact': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] { mail, tel, whatsapp, facebook, instagram, socialMediaText },
+      'seo': *[!(_id in path("drafts.**")) && _type == 'seo'][0]{ seoDatenschutz },
+      'datenschutz': *[!(_id in path("drafts.**")) && _type == 'datenschutz'][0] {
+        dataProtectionText[]{
+          ...,
+          _type == 'gallery' => {
+            images[]{
+              'imageUrl': asset->url,
+              'width': asset->metadata.dimensions.width,
+              'height': asset->metadata.dimensions.height,
+              'altText': asset->altText
+            }
+          },
+          _type == 'image' => {
+            'imageUrl': asset->url,
+            'width': asset->metadata.dimensions.width,
+            'height': asset->metadata.dimensions.height,
+            'altText': asset->altText
+          },
+          _type == 'block' => {
+            ...,
+            markDefs[] {
+              ...,
+              _type == 'link' => {
+                'linkUrl': href
+              },
+              _type == 'file' => {
+                'fileUrl': asset->url
+              }
+            }
+          }
+        }
+      }
+    }`
   );
-
-  return {
-    text: result[0].registerText,
-    contact: await fetchContact(preview),
-    preview
-  };
 };
 
-export const fetchDataProtection = async preview => {
-  const result = filterDrafts(
-    await getClient(preview).fetch(`*[_type == 'datenschutz']`),
-    preview
+const fetchAnmelden = async () => {
+  return await client.fetch(
+    `{
+      'contact': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] { mail, tel, whatsapp, facebook, instagram, socialMediaText },
+      'seo': *[!(_id in path("drafts.**")) && _type == 'seo'][0]{ seoAnmelden },
+      'anmelden': *[!(_id in path("drafts.**")) && _type == 'anmelden'][0] {
+        registerText[]{
+          ...,
+          _type == 'gallery' => {
+            images[]{
+              'imageUrl': asset->url,
+              'width': asset->metadata.dimensions.width,
+              'height': asset->metadata.dimensions.height,
+              'altText': asset->altText
+            }
+          },
+          _type == 'image' => {
+            'imageUrl': asset->url,
+            'width': asset->metadata.dimensions.width,
+            'height': asset->metadata.dimensions.height,
+            'altText': asset->altText
+          },
+          _type == 'block' => {
+            ...,
+            markDefs[] {
+              ...,
+              _type == 'link' => {
+                'linkUrl': href
+              },
+              _type == 'file' => {
+                'fileUrl': asset->url
+              }
+            }
+          }
+        }
+      }
+    }`
   );
-
-  return {
-    text: result[0].dataProtectionText,
-    contact: await fetchContact(preview),
-    preview
-  };
 };
 
-export const fetchImprint = async preview => {
-  const result = filterDrafts(
-    await getClient(preview).fetch(`*[_type == 'impressum']`),
-    preview
+const fetchKontakt = async () => {
+  return await client.fetch(
+    `{
+      'contact': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] { mail, tel, whatsapp, facebook, instagram, socialMediaText },
+      'seo': *[!(_id in path("drafts.**")) && _type == 'seo'][0]{ seoKontakt },
+      'kontakt': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] {
+        contactText[]{
+          ...,
+          _type == 'gallery' => {
+            images[]{
+              'imageUrl': asset->url,
+              'width': asset->metadata.dimensions.width,
+              'height': asset->metadata.dimensions.height,
+              'altText': asset->altText
+            }
+          },
+          _type == 'image' => {
+            'imageUrl': asset->url,
+            'width': asset->metadata.dimensions.width,
+            'height': asset->metadata.dimensions.height,
+            'altText': asset->altText
+          },
+          _type == 'block' => {
+            ...,
+            markDefs[] {
+              ...,
+              _type == 'link' => {
+                'linkUrl': href
+              },
+              _type == 'file' => {
+                'fileUrl': asset->url
+              }
+            }
+          }
+        }
+      }
+    }`
   );
-
-  return {
-    text: result[0].imprintText,
-    contact: await fetchContact(preview),
-    preview
-  };
 };
 
-export const fetchStart = async preview => {
-  const resultStart = filterDrafts(
-    await getClient(preview).fetch(`*[_type == 'startseite']`),
-    preview
+const fetchPartners = async () => {
+  return await client.fetch(
+    `{
+      'contact': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] { mail, tel, whatsapp, facebook, instagram, socialMediaText },
+      'seo': *[!(_id in path("drafts.**")) && _type == 'seo'][0]{ seoPartner },
+      'partners': *[!(_id in path("drafts.**")) && _type == 'partners'][0] {
+        partners[]{
+          ...,
+          'linkUrl': href,
+          'imageUrl': logo.asset->url,
+          'width': logo.asset->metadata.dimensions.width,
+          'height': logo.asset->metadata.dimensions.height,
+          'altText': logo.asset->altText
+        }
+      }
+    }`
   );
-
-  const resultStartEndTournament = filterDrafts(
-    await getClient(preview).fetch(`*[_type == 'termin'] | order(datum asc)`),
-    preview
-  );
-
-  const firstTournamentDate = moment(
-    _.isEmpty(resultStartEndTournament)
-      ? moment().format('YYYY') + '-01-01'
-      : _.first(resultStartEndTournament).datum
-  );
-  const lastTournamentDate = moment(
-    _.isEmpty(resultStartEndTournament)
-      ? moment().format('YYYY') + '-12-31'
-      : _.last(resultStartEndTournament).datum
-  );
-
-  return {
-    introGeneral: resultStart[0].introGeneral,
-    introTextTournaments: resultStart[0].introTextTournaments,
-    firstTournamentDate: firstTournamentDate.format('DD.MM'),
-    lastTournamentDate: lastTournamentDate.format('DD.MM'),
-    tournamentYear: firstTournamentDate.format('YYYY'),
-    contact: await fetchContact(preview),
-    preview
-  };
 };
 
-export const fetchPartner = async preview => {
-  const result = filterDrafts(
-    await getClient(preview).fetch(
-      `*[_type == 'partner'] { _id, name, 'imageUrl': logo.asset->url, url }`
-    ),
-    preview
+const fetchPreise = async () => {
+  return await client.fetch(
+    `{
+      'contact': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] { mail, tel, whatsapp, facebook, instagram, socialMediaText },
+      'seo': *[!(_id in path("drafts.**")) && _type == 'seo'][0]{ seoPreise },
+      'preise': *[!(_id in path("drafts.**")) && _type == 'preise'][0] {
+        prizesText[]{
+          ...,
+          _type == 'gallery' => {
+            images[]{
+              'imageUrl': asset->url,
+              'width': asset->metadata.dimensions.width,
+              'height': asset->metadata.dimensions.height,
+              'altText': asset->altText
+            }
+          },
+          _type == 'image' => {
+            'imageUrl': asset->url,
+            'width': asset->metadata.dimensions.width,
+            'height': asset->metadata.dimensions.height,
+            'altText': asset->altText
+          },
+          _type == 'block' => {
+            ...,
+            markDefs[] {
+              ...,
+              _type == 'link' => {
+                'linkUrl': href
+              },
+              _type == 'file' => {
+                'fileUrl': asset->url
+              }
+            }
+          }
+        }
+      }
+    }`
   );
-
-  return {
-    partner: result,
-    contact: await fetchContact(preview),
-    preview
-  };
 };
 
-export const fetchPrizes = async preview => {
-  const result = filterDrafts(
-    await getClient(preview).fetch(`*[_type == 'preise']`),
-    preview
+const fetchRegeln = async () => {
+  return await client.fetch(
+    `{
+      'contact': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] { mail, tel, whatsapp, facebook, instagram, socialMediaText },
+      'seo': *[!(_id in path("drafts.**")) && _type == 'seo'][0]{ seoRegeln },
+      'regeln': *[!(_id in path("drafts.**")) && _type == 'regeln'][0] {
+        rulesText[]{
+          ...,
+          _type == 'gallery' => {
+            images[]{
+              'imageUrl': asset->url,
+              'width': asset->metadata.dimensions.width,
+              'height': asset->metadata.dimensions.height,
+              'altText': asset->altText
+            }
+          },
+          _type == 'image' => {
+            'imageUrl': asset->url,
+            'width': asset->metadata.dimensions.width,
+            'height': asset->metadata.dimensions.height,
+            'altText': asset->altText
+          },
+          _type == 'block' => {
+            ...,
+            markDefs[] {
+              ...,
+              _type == 'link' => {
+                'linkUrl': href
+              },
+              _type == 'file' => {
+                'fileUrl': asset->url
+              }
+            }
+          }
+        }
+      }
+    }`
   );
-
-  return {
-    text: result[0].prizesText,
-    contact: await fetchContact(preview),
-    preview
-  };
 };
 
-export const fetchRules = async preview => {
-  const result = filterDrafts(
-    await getClient(preview).fetch(`*[_type == 'regeln']`),
-    preview
+const fetchStandorte = async () => {
+  return await client.fetch(
+    `{
+      'contact': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] { mail, tel, whatsapp, facebook, instagram, socialMediaText },
+      'seo': *[!(_id in path("drafts.**")) && _type == 'seo'][0]{ seoStandorte },
+      'standorte': *[!(_id in path("drafts.**")) && _type == 'standort'] {
+        address[]{
+          ...,
+          _type == 'gallery' => {
+            images[]{
+              'imageUrl': asset->url,
+              'width': asset->metadata.dimensions.width,
+              'height': asset->metadata.dimensions.height,
+              'altText': asset->altText
+            }
+          },
+          _type == 'image' => {
+            'imageUrl': asset->url,
+            'width': asset->metadata.dimensions.width,
+            'height': asset->metadata.dimensions.height,
+            'altText': asset->altText
+          },
+          _type == 'block' => {
+            ...,
+            markDefs[] {
+              ...,
+              _type == 'link' => {
+                'linkUrl': href
+              },
+              _type == 'file' => {
+                'fileUrl': asset->url
+              }
+            }
+          }
+        }
+        name,
+        shortName,
+        'dates': *[!(_id in path("drafts.**")) && _type == 'termin' && references(^._id)] { datum } | order(datum asc)
+      }
+    }`
   );
-
-  return {
-    text: result[0].rulesText,
-    contact: await fetchContact(preview),
-    preview
-  };
 };
 
-export const fetchVenues = async preview => {
-  const resultVenues = filterDrafts(
-    await getClient(preview).fetch(`*[ _type == 'standort' ]`),
-    preview
+const fetchTermine = async () => {
+  return await client.fetch(
+    `{
+      'contact': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] { mail, tel, whatsapp, facebook, instagram, socialMediaText },
+      'seo': *[!(_id in path("drafts.**")) && _type == 'seo'][0]{ seoTermine },
+      'termine': *[!(_id in path("drafts.**")) && _type == 'termin'] {
+        courts,
+        datum,
+        mixa,
+        mixb,
+        mixc,
+        ort->
+      } | order(datum asc)
+    }`
   );
-
-  const resultTermine = filterDrafts(
-    await getClient(preview).fetch(
-      `*[ _type == "termin" ]{ ..., ort-> } | order(datum asc)`
-    ),
-    preview
-  );
-
-  const orte = _.map(resultVenues, ort => {
-    const termineAmStandort = _.filter(
-      resultTermine,
-      termin => termin.ort._id === ort._id
-    );
-    const termineInArrayForm = _.map(termineAmStandort, termin =>
-      moment(termin.datum).format('DD. MMMM')
-    );
-
-    return {
-      name: ort.name,
-      adresse: ort.addresse,
-      termine: termineInArrayForm
-    };
-  });
-
-  return {
-    orte,
-    contact: await fetchContact(preview),
-    preview
-  };
 };
 
-export const fetchEvents = async preview => {
-  const result = filterDrafts(
-    await getClient(preview).fetch(
-      `*[ _type == "termin" ]{ ..., ort-> } | order(datum asc)`
-    ),
-    preview
-  );
-
-  const events = _.map(result, event => ({
-    datum: moment(event.datum).format('dd, DD. MMMM YYYY'),
-    ort: event.ort.shortName,
-    courts: event.courts,
-    mixa: event.mixa || null,
-    mixb: event.mixb || null,
-    mixc: event.mixc || null
-  }));
-
-  return {
-    events,
-    contact: await fetchContact(preview),
-    preview
-  };
+export {
+  fetchAnmelden,
+  fetchDataProtection,
+  fetchImpressum,
+  fetchKontakt,
+  fetchPartners,
+  fetchPreise,
+  fetchRegeln,
+  fetchStandorte,
+  fetchStartseite,
+  fetchTermine
 };

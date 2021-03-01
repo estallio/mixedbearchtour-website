@@ -5,7 +5,7 @@
     "dataset": "mixedbeachtour"
   },
   "project": {
-    "name": "mixedbeachtour.ch"
+    "name": "Mixed Beach-Tour"
   },
   "plugins": [
     "@sanity/base",

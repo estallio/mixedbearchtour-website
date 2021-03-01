@@ -9,7 +9,8 @@ export default () => ({
   type: 'block',
   styles: [
     { title: 'Normal', value: 'normal' },
-    { title: 'Heading', value: 'h2' },
+    { title: 'Große Überschrift', value: 'h2' },
+    { title: 'Kleine Überschrift', value: 'h3' },
   ],
   lists: [
     { title: 'Bullet', value: 'bullet' },

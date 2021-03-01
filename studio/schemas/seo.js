@@ -5,7 +5,7 @@ const capitalize = (s) => {
 
 const seoPageIds = [
   'startseite',
-  'standort',
+  'standorte',
   'termin',
   'regeln',
   'preise',

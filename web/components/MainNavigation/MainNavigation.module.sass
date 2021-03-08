@@ -1,12 +1,12 @@
-@import ../style/variables
 @import ~include-media/dist/_include-media.scss
+@import styles/variables
 
 .menu
   margin-top: 35px
   margin-left: 5px
   font-family: 'Roboto', sans-serif
 
-.menu_entry
+.menuEntry
   text-decoration: none
   color: #000000
   letter-spacing: 0.5px
@@ -27,8 +27,8 @@
     z-index: -1
     width: 150px
     height: 55px
-    border-radius: $general-border-radius
-    box-shadow: $general-box-shadow
+    // border-radius: $general-border-radius
+    // box-shadow: $general-box-shadow
   &.active,
   &:hover
     color: #ffffff
@@ -38,13 +38,13 @@
 .start
   &:after
     margin-left: 5px
-    margin-top: 0px
+    margin-top: 0
     transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(5deg) rotateX(-30deg) rotateZ(-1deg)
 
 .standorte
   &:after
     margin-left: -3px
-    margin-top: 0px
+    margin-top: 0
     transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(-5deg) rotateX(-30deg) rotateZ(1deg)
 
 .termine
@@ -56,7 +56,7 @@
 .regeln
   &:after
     margin-left: -5px
-    margin-top: 0px
+    margin-top: 0
     transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(-3deg) rotateX(-30deg) rotateZ(-1deg)
 
 .preise

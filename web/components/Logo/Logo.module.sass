@@ -4,26 +4,36 @@
 .link
   display: block
   position: relative
-  z-index: 10001
-  width: 180px
-  height: 120px
+  z-index: 5
   top: 10px
   &:after
-    content: ""
+    content: ''
     display: block
     position: absolute
-    width: 180px
-    height: 185px
+    width: 130px
+    height: 150px
     top: -40px
+    left:  10px
     z-index: 2
     background-color: #ffffff
     transform: perspective(500px) rotateY(-1deg) rotateX(-30deg) rotateZ(3deg)
-    // border-radius: $general-border-radius
-    // box-shadow: $general-box-shadow
+    border-radius: $border-radius
+    box-shadow: $box-shadow
+    @include media(">=iphone6")
+      width: 150px
+      height: 160px
+    @include media(">iphone6Plus")
+      width: 180px
+      height: 185px
 
-.image
-  width: 140px
+.logo
+  width: 100px
   margin-top: 0
-  margin-left: 20px
+  margin-left: 23px
   z-index: 3
   position: relative
+  @include media(">=iphone6")
+    margin-left: 30px
+    width: 110px
+  @include media(">iphone6Plus")
+    width: 140px

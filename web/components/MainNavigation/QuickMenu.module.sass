@@ -1,0 +1,35 @@
+@import ~include-media/dist/_include-media.scss
+@import styles/variables
+
+.menu
+  font-family: 'Roboto', sans-serif
+  font-weight: 700
+
+.menuEntry
+  text-decoration: none
+  display: block
+  margin: 25px auto
+  width: 200px
+  color: $defaultFontColor
+  font-size: $defaultFontSize * 1.75
+  line-height: $defaultLineHeight * 1.75
+  letter-spacing: $defaultLetterSpacing * 1.75
+  & .socialIcon
+    z-index: 1
+    vertical-align: text-top
+    margin-left: 20px
+    margin-right: 10px
+    width: 30px
+    height: 30px
+    background-repeat: no-repeat
+    background-size: 100%
+    @include media(">desktop")
+      margin-left: 0
+
+.raiffeisen
+  text-align: center
+  & .raiffeisenText
+    &:before
+      content: ''
+      display: block
+    color: #EE3124

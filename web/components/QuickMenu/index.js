@@ -1,74 +1,88 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import {
+  AiOutlineInstagram,
+  AiOutlineFacebook,
+  AiOutlineEdit,
+  AiOutlineMail,
+  AiOutlineWhatsApp,
+} from 'react-icons/ai';
 
 import classNames from 'classnames';
 
-import Link from '../external/Link';
+import ContactContext from '../ContactContext';
 
-import styles from './styles.sass';
+import Link from '../Link';
 
-const QuickMenu = ({ contact }) => (
-  <div className={styles.menu}>
-    <Link href="/anmelden" defaultClass={styles.menu_entry}>
-      <a className={styles.anmelden}>
+import customStyles from './QuickMenu.module.sass';
+
+const QuickMenu = ({ styles = customStyles }) => {
+  const contact = useContext(ContactContext);
+
+  return (
+    <div className={styles.menu}>
+      <Link href="/anmelden" defaultClass={styles.menuEntry}>
+        <a className={styles.anmelden}>
+          <span>
+            <AiOutlineEdit className={styles.socialIcon} />
+          </span>
+          <span>Anmelden</span>
+        </a>
+      </Link>
+      <a
+        className={classNames(styles.menuEntry, styles.email)}
+        href={`mailto:${contact.mail}?subject=Website%20Anfrage`}
+      >
         <span>
-          <i className={styles.socialIcon}></i>
+          <AiOutlineMail className={styles.socialIcon} />
         </span>
-        <span>Anmelden</span>
+        <span>Email</span>
       </a>
-    </Link>
-    <a
-      className={classNames(styles.menu_entry, styles.email)}
-      href={`mailto:${contact.mail}?subject=Website%20Anfrage`}
-    >
-      <span>
-        <i className={styles.socialIcon}></i>
-      </span>
-      <span>Email</span>
-    </a>
-    <a
-      className={classNames(styles.menu_entry, styles.instagram)}
-      href={`${contact.instagram.url}`}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <span>
-        <i className={styles.socialIcon}></i>
-      </span>
-      <span>Instagram</span>
-    </a>
+      <a
+        className={classNames(styles.menuEntry, styles.instagram)}
+        href={`${contact.instagram.href}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>
+          <AiOutlineInstagram className={styles.socialIcon} />
+        </span>
+        <span>Instagram</span>
+      </a>
 
-    <a
-      className={classNames(styles.menu_entry, styles.facebook)}
-      href={`${contact.facebook.url}`}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <span>
-        <i className={styles.socialIcon}></i>
-      </span>
-      <span>Facebook</span>
-    </a>
-    <a
-      className={classNames(styles.menu_entry, styles.whatsapp)}
-      href={`${contact.whatsapp.url}`}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <span>
-        <i className={styles.socialIcon}></i>
-      </span>
-      <span>WhatsApp</span>
-    </a>
-    <a
-      className={classNames(styles.menu_entry, styles.raiffeisen)}
-      href="https://www.raiffeisen.ch"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <span>Titelsponsor</span>
-      <span className={styles.raiffeisenText}>RAIFFEISEN</span>
-    </a>
-  </div>
-);
+      <a
+        className={classNames(styles.menuEntry, styles.facebook)}
+        href={`${contact.facebook.href}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>
+          <AiOutlineFacebook className={styles.socialIcon} />
+        </span>
+        <span>Facebook</span>
+      </a>
+      <a
+        className={classNames(styles.menuEntry, styles.whatsapp)}
+        href={`${contact.whatsapp.href}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>
+          <AiOutlineWhatsApp className={styles.socialIcon} />
+        </span>
+        <span>WhatsApp</span>
+      </a>
+      <a
+        className={classNames(styles.menuEntry, styles.raiffeisen)}
+        href="https://www.raiffeisen.ch"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>Titelsponsor</span>
+        <span className={styles.raiffeisenText}>RAIFFEISEN</span>
+      </a>
+    </div>
+  );
+};
 
 export default QuickMenu;

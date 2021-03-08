@@ -2,9 +2,15 @@ import React from 'react';
 
 import QuickMenu from '../QuickMenu';
 
-const RightColumn = ({ contact }) => (
+import styles from './RightColumn.module.sass';
+
+const RightColumn = () => (
   <>
-    <QuickMenu contact={contact} />
+    <div className={styles.rightColumn}>
+      <div className={styles.menu}>
+        <QuickMenu />
+      </div>
+    </div>
   </>
 );
 

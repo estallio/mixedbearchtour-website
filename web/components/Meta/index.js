@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react'
 
 import { useRouter } from 'next/router';
 
 import { NextSeo, SocialProfileJsonLd } from 'next-seo';
 
-const Meta = ({ seo, contact }) => {
+import ContactContext from '../ContactContext';
+
+const Meta = ({ seo }) => {
   const { pathname: untrimmedPathname } = useRouter();
 
   const pathname = untrimmedPathname.replace(/\/$/, '');
+
+  const contact = useContext(ContactContext);
 
   return (
     <>

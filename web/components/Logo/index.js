@@ -1,18 +1,21 @@
 import React from 'react';
 
-import Link from '../external/Link';
+import Link from '../Link';
 
-import styles from './styles.sass';
+import styles from './Logo.module.sass';
 
 const Logo = () => (
-  <Link href="/">
-    <a className={styles.link}>
-      <img
-        src="/media/images/mixedbeachtour-logo.svg"
-        className={styles.image}
-      />
-    </a>
-  </Link>
+  <div className={styles.logoWrapper}>
+    <Link href="/">
+      <a className={styles.link}>
+        <img
+          src="/theme/images/mixedbeachtour-logo.png"
+          className={styles.logo}
+          align="Mixed Beach-Tour Logo"
+        />
+      </a>
+    </Link>
+  </div>
 );
 
 export default Logo;

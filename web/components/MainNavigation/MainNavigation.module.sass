@@ -1,41 +1,165 @@
 @import ~include-media/dist/_include-media.scss
 @import styles/variables
 
-.menu
-  margin-top: 35px
-  margin-left: 5px
-  font-family: 'Roboto', sans-serif
+.quickMenu
+  display: none
 
-.menuEntry
-  text-decoration: none
-  color: #000000
-  letter-spacing: 0.5px
-  font-size: 24px
-  display: flex
-  align-items: center
-  justify-content: center
-  width: 160px
-  height: 60px
-  margin-top: 15px
-  z-index: 5
+.mainNavigation
+  font-family: 'Roboto', sans-serif
+  font-weight: 700
+  &.open .menuToggle
+    border-color: transparent
+    &:after
+      top: 40px
+      right: 40px
+      content: '×'
+      font-size: 80px
+      position: fixed
+    &:hover
+      &:after
+        color: inherit
+  &.open .nav
+    visibility: visible
+    opacity: 1
+  &.open .quickMenu
+    display: block
+  &.open .menuToggleBackground
+    display: none
+
+.nav
+  padding-top: 40px
+  top: 0
+  left: 0
+  visibility: hidden
+  opacity: 0
+  position: fixed
+  overflow: scroll
+  padding-bottom: 40px
+  width: 100%
+  height: 100%
+  background-color: $white
+  z-index: 90
+  font-family: $themeFont
+  transition: visibility 0.25s, opacity 0.25s linear
+  @include media(">desktop")
+    overflow: visible
+    top: 0
+    width: auto
+    height: auto
+    background: none
+    position: relative
+    padding: 0
+    visibility: visible
+    opacity: 1
+
+.menuToggle
+  padding: 30px 20px 8px
+  margin-right: 15px
   position: relative
+  z-index: 100
+  cursor: pointer
+  @include media(">=iphone6")
+    margin-right: 25px
+  @include media(">iphone6Plus")
+    padding: 65px 20px 8px
+    margin-right: 40px
+  @include media(">desktop")
+    display: none
   &:after
-    background-color: #ffffff
+    content: 'Menü'
+    font-size: $h2FontSize
+    font-family: $h2Font
+    line-height: $h2LineHeight
+    letter-spacing: $defaultLetterSpacing
+    color: $defaultFontColor
+    display: block
+  @media (hover: hover) and (pointer: fine)
+    &:hover
+      &:after
+        color: $white
+      .menuToggleBackground:after
+        background-color: $red
+
+.menuToggleBackground
+  &:after
+    background-color: $white
     content: ""
     display: block
     position: absolute
     z-index: -1
-    width: 150px
-    height: 55px
-    // border-radius: $general-border-radius
-    // box-shadow: $general-box-shadow
-  &.active,
-  &:hover
-    color: #ffffff
-    &:after
-      background-color: #EE3124
+    width: 100px
+    height: 45px
+    border-radius: $border-radius
+    box-shadow: $box-shadow
+    margin-left: -20px
+    margin-top: -7px
+    transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(5deg) rotateX(-30deg) rotateZ(-1deg)
+    @include media(">=iphone6")
+      width: 120px
+      height: 55px
+      margin-left: -30px
+      margin-top: -12px
+    @include media(">=iphone6Plus")
+      width: 120px
+      height: 55px
 
-.start
+.navItem
+  text-decoration: none
+  display: block
+  margin: 25px auto
+  width: 200px
+  color: $defaultFontColor
+  font-size: $defaultFontSize * 1.75
+  line-height: $defaultLineHeight * 1.75
+  letter-spacing: $defaultLetterSpacing * 1.75
+  &:first-child
+    margin-top: 50px
+    @include media(">desktop")
+      margin-top: inherit
+  & .socialIcon
+    z-index: 1
+    vertical-align: text-top
+    margin-left: 20px
+    margin-right: 10px
+    width: 30px
+    height: 30px
+    background-repeat: no-repeat
+    background-size: 100%
+    @include media(">desktop")
+      margin-left: 0
+      width: 25px
+      height: 25px
+      vertical-align: top
+  @include media(">desktop")
+    color: $defaultFontColor
+    font-size: $defaultDesktopFontSize * 1.1
+    line-height: $defaultDesktopLineHeight * 1.0
+    letter-spacing: $defaultDesktopLetterSpacing * 1.1
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 160px
+    height: 60px
+    margin-top: 15px
+    z-index: 5
+    position: relative
+    &:after
+      background-color: $white
+      content: ""
+      display: block
+      position: absolute
+      z-index: -1
+      width: 160px
+      height: 55px
+      border-radius: $border-radius
+      box-shadow: $box-shadow
+    &.active,
+    &:hover
+      color: $white
+      &:after
+        background-color: $red
+
+.startseite
   &:after
     margin-left: 5px
     margin-top: 0
@@ -50,7 +174,7 @@
 .termine
   &:after
     margin-left: -2px
-    margin-top: -3px
+    margin-top: -6px
     transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(-5deg) rotateX(30deg) rotateZ(-1deg)
 
 .regeln
@@ -61,8 +185,8 @@
 
 .preise
   &:after
-    margin-left: 2px
-    margin-top: -2px
+    margin-left: 8px
+    margin-top: -5px
     transform: translate3d(0px, 0px, -30px) perspective(200px) rotateY(5deg) rotateX(30deg) rotateZ(1deg)
 
 .partner

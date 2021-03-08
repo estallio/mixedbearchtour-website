@@ -1,8 +1,16 @@
 import React, { useEffect } from 'react';
 
+import QuickMenu from '../QuickMenu';
+
 import Link from '../Link';
 
-import styles from './Menu.module.sass';
+import { AiOutlineHome, AiOutlineContacts } from 'react-icons/ai';
+import { BiCalendarEvent, BiMedal } from 'react-icons/bi';
+import { GiRuleBook } from 'react-icons/gi';
+import { FaHandsHelping, FaMapMarkedAlt } from 'react-icons/fa';
+
+import styles from './MainNavigation.module.sass';
+import quickMenuStyles from './QuickMenu.module.sass';
 
 const Menu = () => {
   useEffect(() => {
@@ -22,7 +30,9 @@ const Menu = () => {
 
   return (
     <div className={styles.mainNavigation}>
-      <div className={styles.menuToggle}></div>
+      <div className={styles.menuToggle}>
+        <div className={styles.menuToggleBackground}></div>
+      </div>
       <nav className={styles.nav} id="menu">
         <Link
           href="/"
@@ -30,6 +40,9 @@ const Menu = () => {
           activeClass={styles.active}
         >
           <a className={styles.startseite}>
+            <span>
+              <AiOutlineHome className={styles.socialIcon} />
+            </span>
             <span>Startseite</span>
           </a>
         </Link>
@@ -39,6 +52,9 @@ const Menu = () => {
           activeClass={styles.active}
         >
           <a className={styles.standorte}>
+            <span>
+              <FaMapMarkedAlt className={styles.socialIcon} />
+            </span>
             <span>Standorte</span>
           </a>
         </Link>
@@ -48,6 +64,9 @@ const Menu = () => {
           activeClass={styles.active}
         >
           <a className={styles.termine}>
+            <span>
+              <BiCalendarEvent className={styles.socialIcon} />
+            </span>
             <span>Termine</span>
           </a>
         </Link>
@@ -57,6 +76,9 @@ const Menu = () => {
           activeClass={styles.active}
         >
           <a className={styles.regeln}>
+            <span>
+              <GiRuleBook className={styles.socialIcon} />
+            </span>
             <span>Regeln</span>
           </a>
         </Link>
@@ -66,6 +88,9 @@ const Menu = () => {
           activeClass={styles.active}
         >
           <a className={styles.preise}>
+            <span>
+              <BiMedal className={styles.socialIcon} />
+            </span>
             <span>Preise</span>
           </a>
         </Link>
@@ -75,6 +100,9 @@ const Menu = () => {
           activeClass={styles.active}
         >
           <a className={styles.partner}>
+            <span>
+              <FaHandsHelping className={styles.socialIcon} />
+            </span>
             <span>Partner</span>
           </a>
         </Link>
@@ -84,9 +112,15 @@ const Menu = () => {
           activeClass={styles.active}
         >
           <a className={styles.kontakt}>
+            <span>
+              <AiOutlineContacts className={styles.socialIcon} />
+            </span>
             <span>Kontakt</span>
           </a>
         </Link>
+        <div className={styles.quickMenu}>
+          <QuickMenu styles={quickMenuStyles} />
+        </div>
       </nav>
     </div>
   );

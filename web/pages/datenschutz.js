@@ -3,31 +3,28 @@ import React from 'react';
 import { fetchDataProtection } from '../lib/api';
 import ExtendedBlockContent from '../lib/ExtendedBlockContent';
 
-import DefaultHeader from '../components/DefaultHeader';
+import Meta from '../components/Meta';
 import Layout from '../components/Layout';
+import ContactContext from '../components/ContactContext'
 
-import styles from './datenschutz.sass';
+import styles from './index.module.sass';
 
-export async function getStaticProps({ preview = false }) {
-  return { props: await fetchDataProtection(preview) };
+export async function getStaticProps() {
+  return { props: await fetchDataProtection() };
 }
 
-const Start = ({ text, contact, preview }) => (
-  <>
-    <DefaultHeader
-      title="Mixed Beach-Tour"
-      description="Offizielle Website der Mixed Beach-Tour"
-      contact={contact}
-    />
-    <Layout preview={preview} contact={contact}>
+const Datenschutz = ({ contact, seo, datenschutz: { dataProtectionText } }) => (
+  <ContactContext.Provider value={contact}>
+    <Meta seo={seo.seoDatenschutz} />
+    <Layout>
       <div className={styles.header}>
-        <span>Datenschutz</span>
+        <h1>Datenschutz</h1>
       </div>
       <div className={styles.wrapper}>
-        <ExtendedBlockContent blocks={text} />
+        <ExtendedBlockContent blocks={dataProtectionText} />
       </div>
     </Layout>
-  </>
+  </ContactContext.Provider>
 );
 
-export default Start;
+export default Datenschutz;

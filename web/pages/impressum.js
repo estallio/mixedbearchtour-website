@@ -1,33 +1,30 @@
 import React from 'react';
 
-import { fetchImprint } from '../lib/api';
+import { fetchImpressum } from '../lib/api';
 import ExtendedBlockContent from '../lib/ExtendedBlockContent';
 
-import DefaultHeader from '../components/DefaultHeader';
+import Meta from '../components/Meta';
 import Layout from '../components/Layout';
+import ContactContext from '../components/ContactContext';
 
-import styles from './impressum.sass';
+import styles from './index.module.sass';
 
-export async function getStaticProps({ preview = false }) {
-  return { props: await fetchImprint(preview) };
+export async function getStaticProps() {
+  return { props: await fetchImpressum() };
 }
 
-const Start = ({ text, contact, preview }) => (
-  <>
-    <DefaultHeader
-      title="Impressum | Mixed Beach-Tour"
-      description="Impressum der Mixed Beach-Tour"
-      contact={contact}
-    />
-    <Layout preview={preview} contact={contact}>
+const Impressum = ({ contact, seo, impressum: { imprintText } }) => (
+  <ContactContext.Provider value={contact}>
+    <Meta seo={seo.seoImpressum} />
+    <Layout>
       <div className={styles.header}>
-        <span>Impressum</span>
+        <h1>Impressum</h1>
       </div>
       <div className={styles.wrapper}>
-        <ExtendedBlockContent blocks={text} />
+        <ExtendedBlockContent blocks={imprintText} />
       </div>
     </Layout>
-  </>
+  </ContactContext.Provider>
 );
 
-export default Start;
+export default Impressum;

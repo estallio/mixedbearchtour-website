@@ -1,25 +1,75 @@
+@import ~include-media/dist/_include-media.scss
+@import styles/variables
+
 .footer
-  height: 40px
+  width: 100%
+  padding-left: 20px
+  padding-right: 20px
+
+  color: #333333
   background-color: #ffffff
+
+  font-family: 'Roboto', sans-serif
+  font-size: 20px
+  line-height: 26px
+  letter-spacing: 0.5px
+  font-weight: 400
+
   display: flex
   align-items: center
   justify-content: center
-  font-family: 'Roboto', sans-serif
-  letter-spacing: 0.5px
-  padding-left: 20px
-  padding-right: 20px
-  font-size: 18px
-  color: #333333
-  & .inner
+  @include media(">bigPhone")
+    font-weight: 700
+    font-size: 18px
+    line-height: 24px
+
+  .inner
+    max-width: 1200px
+    display: flex
+    flex-direction: column-reverse
+    justify-content: space-between
+    @include media(">bigPhone")
+      flex-direction: row
+      width: 100%
+      padding-top: 8px
+      padding-bottom: 8px
+  .bottomNav
+    padding-top: 15px
+    padding-bottom: 7.5px
+    flex-wrap: wrap
     display: flex
     flex-direction: row
-    width: 1125px
-    justify-content: space-between
-  & .bottomNav
-    & a
-      text-decoration: none
-      margin-left: 40px
-      color: #333333
+    a
+      color: inherit
+      flex: 0 0 100% // flex: 0 0 50% for 2-column
+      margin-top: 8px
+      text-align: center
       &:hover,
       &.active
         text-decoration: underline
+      @include media(">bigPhone")
+        flex: 1
+        margin-top: 0
+        margin-left: 30px
+    @include media(">bigPhone")
+      padding-top: 0
+      padding-bottom: 0
+  .copyrightText
+    color: #999999
+
+    padding-bottom: 15px
+    padding-top: 7.5px
+
+    text-align: center
+    font-family: 'Roboto', sans-serif
+    font-size: 22px
+    line-height: 28px
+    letter-spacing: 0.5px
+    font-weight: 700
+
+    @include media(">bigPhone")
+      padding-top: 0
+      padding-bottom: 0
+      font-weight: 700
+      font-size: 18px
+      line-height: 24px

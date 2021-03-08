@@ -1,33 +1,30 @@
 import React from 'react';
 
-import { fetchPrizes } from '../lib/api';
+import { fetchPreise } from '../lib/api';
 import ExtendedBlockContent from '../lib/ExtendedBlockContent';
 
-import DefaultHeader from '../components/DefaultHeader';
+import Meta from '../components/Meta';
 import Layout from '../components/Layout';
+import ContactContext from '../components/ContactContext';
 
-import styles from './preise.sass';
+import styles from './index.module.sass';
 
-export async function getStaticProps({ preview = false }) {
-  return { props: await fetchPrizes(preview) };
+export async function getStaticProps() {
+  return { props: await fetchPreise() };
 }
 
-const Start = ({ text, contact, preview }) => (
-  <>
-    <DefaultHeader
-      title="Preise | Mixed Beach-Tour"
-      description="Infos über Ranking, Goodies und Preise für Gewinner und TeilnehmerInnen der Mixed Beach-Tour Turnieren"
-      contact={contact}
-    />
-    <Layout preview={preview} contact={contact}>
+const Preise = ({ seo, contact, preise: { prizesText } }) => (
+  <ContactContext.Provider value={contact}>
+    <Meta seo={seo.seoPreise} />
+    <Layout>
       <div className={styles.header}>
-        <span>Preise</span>
+        <h1>Preise</h1>
       </div>
       <div className={styles.wrapper}>
-        <ExtendedBlockContent blocks={text} />
+        <ExtendedBlockContent blocks={prizesText} />
       </div>
     </Layout>
-  </>
+  </ContactContext.Provider>
 );
 
-export default Start;
+export default Preise;

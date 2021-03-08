@@ -1,33 +1,30 @@
 import React from 'react';
 
-import { fetchRegister } from '../lib/api';
+import { fetchAnmelden } from '../lib/api';
 import ExtendedBlockContent from '../lib/ExtendedBlockContent';
 
-import DefaultHeader from '../components/DefaultHeader';
+import Meta from '../components/Meta';
 import Layout from '../components/Layout';
+import ContactContext from '../components/ContactContext';
 
-import styles from './anmelden.sass';
+import styles from './index.module.sass';
 
-export async function getStaticProps({ preview = false }) {
-  return { props: await fetchRegister(preview) };
+export async function getStaticProps() {
+  return { props: await fetchAnmelden() };
 }
 
-const Start = ({ text, contact, preview }) => (
-  <>
-    <DefaultHeader
-      title="Mixed Beach-Tour"
-      description="Offizielle Website der Mixed Beach-Tour"
-      contact={contact}
-    />
-    <Layout preview={preview} contact={contact}>
+const Start = ({ seo, contact, anmelden: { registerText } }) => (
+  <ContactContext.Provider value={contact}>
+    <Meta seo={seo.seoAnmelden} />
+    <Layout>
       <div className={styles.header}>
-        <span>Anmeldung</span>
+        <h1>Anmeldung</h1>
       </div>
       <div className={styles.wrapper}>
-        <ExtendedBlockContent blocks={text} />
+        <ExtendedBlockContent blocks={registerText} />
       </div>
     </Layout>
-  </>
+  </ContactContext.Provider>
 );
 
 export default Start;

@@ -1,46 +1,69 @@
-@import ../style/variables
+@import ~include-media/dist/_include-media.scss
+@import styles/variables
 
 .contentBox
-  margin-top: 10px
-  margin-bottom: 20px
   width: 100%
   background-color: #333333
-  padding: 30px
-  box-sizing: border-box
-  border-radius: 20px
+  padding: 15px 30px
+
   font-family: 'Roboto', sans-serif
   color: #ffffff
   font-size: 17px
+  font-weight: 400
   letter-spacing: 0.5px
-  line-height: 25px
-  display: flex
-  box-shadow: 0 0 6px 2px rgba(51, 51, 51, 0.5)
-  & h2
-    padding-bottom: 10px
+  line-height: 23px
+  @include media(">600px")
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    padding-bottom: 50px
+  @include media(">bigPhone")
+    font-weight: 700
+  .socialMediaHeading
+    width: 100%
+  h4
+    margin: 0 0 20px
     font-size: 34px
     line-height: 38px
-  & .left
-    width: 40%
-  & .right
-    width: 60%
-  & .instagram
-    margin-top: 5%
-    margin-left: 10%
+    color: #FFFFFF
+  .left
+    @include media(">600px")
+      width: 40%
+  .right
+    @include media(">600px")
+      width: 60%
+  .instagram
+    position: relative
+    left: 50%
+    margin-left: -120px
     display: block
-    width: 80px
-    height: 80px
-    background-image: url("/media/images/social_icons.png")
+    width: 110px
+    height: 110px
+    background-image: url("/theme/images/social_icons.png")
     background-repeat: no-repeat
     background-size: 100%
-    background-position: 0px -400px
-  & .facebook
-    margin-left: 50%
+    background-position: 0px -550px
+    @include media(">600px")
+      width: 80px
+      height: 80px
+      background-position: 0px -400px
+      margin-left: -100px
+  .facebook
+    position: relative
+    left: 50%
+    margin-left: 10px
     display: block
-    width: 70px
-    height: 70px
-    background-image: url("/media/images/social_icons.png")
+    width: 90px
+    height: 90px
+    background-image: url("/theme/images/social_icons.png")
     background-repeat: no-repeat
     background-size: 100%
-    background-position: 0px -420px
-  & a
+    background-position: 0px -540px
+    @include media(">600px")
+      width: 65px
+      height: 65px
+      background-position: 0px -390px
+      margin-left: 0
+  a
     color: #ffffff
+    text-decoration: underline

@@ -1,59 +1,58 @@
 import React from 'react';
 
-import { fetchContact } from '../lib/api';
+import { fetchKontakt } from '../lib/api';
 
-import DefaultHeader from '../components/DefaultHeader';
+import Meta from '../components/Meta';
 import Layout from '../components/Layout';
+import ContactContext from '../components/ContactContext'
 
-import styles from './kontakt.sass';
+import styles from './index.module.sass';
 
-export async function getStaticProps({ preview = false }) {
-  return { props: await fetchContact(preview) };
+export async function getStaticProps() {
+  return { props: await fetchKontakt() };
 }
 
-const Start = ({ mail, tel, whatsapp, facebook, instagram, preview }) => (
-  <>
-    <DefaultHeader
-      title="Kontakt | Mixed Beach-Tour"
-      description="Alle Informationen um uns erreichen zu können."
-      contact={{ mail, tel, whatsapp, facebook, instagram, preview }}
-    />
-    <Layout
-      preview={preview}
-      contact={{ mail, tel, whatsapp, facebook, instagram, preview }}
-    >
-      <div className={styles.header}>
-        <span>Kontakt</span>
-      </div>
-      <div className={styles.wrapper}>
-        <h2>Mixed Beach Tour</h2>
-        <p>
-          Mail: <a href={`mailto:${mail}?subject=Website%20Anfrage`}>{mail}</a>
-        </p>
-        <p>
-          Tel.: <a href={`tel:${tel.replace(/\s/g, '')}`}>{tel}</a>
-        </p>
-        <p>
-          Whatsapp:{' '}
-          <a href={`${whatsapp.url}`} target="_blank" rel="noreferrer">
-            {whatsapp.name}
-          </a>
-        </p>
-        <p>
-          Facebook:{' '}
-          <a href={`${facebook.url}`} target="_blank" rel="noreferrer">
-            {facebook.name}
-          </a>
-        </p>
-        <p>
-          Instagram:{' '}
-          <a href={`${instagram.url}`} target="_blank" rel="noreferrer">
-            {instagram.name}
-          </a>
-        </p>
-      </div>
-    </Layout>
-  </>
-);
+const Kontakt = ({ contact, seo, kontakt }) => {
+  const { mail, tel, whatsapp, facebook, instagram } = contact;
 
-export default Start;
+  return (
+    <ContactContext.Provider value={contact}>
+      <Meta seo={seo.seoKontakt} />
+      <Layout>
+        <div className={styles.header}>
+          <h1>Kontakt</h1>
+        </div>
+        <div className={styles.wrapper}>
+          <h2>Mixed Beach-Tour</h2>
+          <p>
+            Mail:{' '}
+            <a href={`mailto:${mail}?subject=Website%20Anfrage`}>{mail}</a>
+          </p>
+          <p>
+            Tel.: <a href={`tel:${tel.replace(/\s/g, '')}`}>{tel}</a>
+          </p>
+          <p>
+            Whatsapp:{' '}
+            <a href={`${whatsapp.href}`} target="_blank" rel="noreferrer">
+              {whatsapp.name}
+            </a>
+          </p>
+          <p>
+            Facebook:{' '}
+            <a href={`${facebook.href}`} target="_blank" rel="noreferrer">
+              {facebook.name}
+            </a>
+          </p>
+          <p>
+            Instagram:{' '}
+            <a href={`${instagram.href}`} target="_blank" rel="noreferrer">
+              {instagram.name}
+            </a>
+          </p>
+        </div>
+      </Layout>
+    </ContactContext.Provider>
+  );
+};
+
+export default Kontakt;

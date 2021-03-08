@@ -336,6 +336,7 @@ const fetchStandorte = async () => {
       'contact': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] { mail, tel, whatsapp, facebook, instagram, socialMediaText },
       'seo': *[!(_id in path("drafts.**")) && _type == 'seo'][0]{ seoStandorte },
       'standorte': *[!(_id in path("drafts.**")) && _type == 'standort'] {
+        _id,
         address[]{
           ...,
           _type == 'gallery' => {
@@ -364,10 +365,10 @@ const fetchStandorte = async () => {
               }
             }
           }
-        }
+        },
         name,
         shortName,
-        'dates': *[!(_id in path("drafts.**")) && _type == 'termin' && references(^._id)] { datum } | order(datum asc)
+        'dates': *[!(_id in path("drafts.**")) && _type == 'termin' && references(^._id)] { _id, datum } | order(datum asc)
       }
     }`
   );
@@ -379,6 +380,7 @@ const fetchTermine = async () => {
       'contact': *[!(_id in path("drafts.**")) && _type == 'kontakt'][0] { mail, tel, whatsapp, facebook, instagram, socialMediaText },
       'seo': *[!(_id in path("drafts.**")) && _type == 'seo'][0]{ seoTermine },
       'termine': *[!(_id in path("drafts.**")) && _type == 'termin'] {
+        _id,
         courts,
         datum,
         mixa,
@@ -400,5 +402,5 @@ export {
   fetchRegeln,
   fetchStandorte,
   fetchStartseite,
-  fetchTermine
+  fetchTermine,
 };

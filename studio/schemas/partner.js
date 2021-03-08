@@ -15,10 +15,15 @@ export default {
       type: 'string',
     },
     {
+      title: 'Volle Breite',
+      name: 'fullWidth',
+      type: 'boolean',
+    },
+    {
       title: 'Logo',
       name: 'logo',
       type: 'image',
-    },
+    }
   ],
   preview: {
     select: {

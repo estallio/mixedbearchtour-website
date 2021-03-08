@@ -1,33 +1,30 @@
 import React from 'react';
 
-import { fetchRules } from '../lib/api';
+import { fetchRegeln } from '../lib/api';
 import ExtendedBlockContent from '../lib/ExtendedBlockContent';
 
-import DefaultHeader from '../components/DefaultHeader';
+import Meta from '../components/Meta';
 import Layout from '../components/Layout';
+import ContactContext from '../components/ContactContext';
 
-import styles from './regeln.sass';
+import styles from './index.module.sass';
 
-export async function getStaticProps({ preview = false }) {
-  return { props: await fetchRules(preview) };
+export async function getStaticProps() {
+  return { props: await fetchRegeln() };
 }
 
-const Start = ({ text, contact, preview }) => (
-  <>
-    <DefaultHeader
-      title="Mixed Beach-Tour"
-      description="Offizielle Website der Mixed Beach-Tour"
-      contact={contact}
-    />
-    <Layout preview={preview} contact={contact}>
+const Regeln = ({ contact, seo, regeln: { rulesText } }) => (
+  <ContactContext.Provider value={contact}>
+    <Meta seo={seo.seoRegeln} />
+    <Layout>
       <div className={styles.header}>
-        <span>Regeln</span>
+        <h1>Regeln</h1>
       </div>
       <div className={styles.wrapper}>
-        <ExtendedBlockContent blocks={text} />
+        <ExtendedBlockContent blocks={rulesText} />
       </div>
     </Layout>
-  </>
+  </ContactContext.Provider>
 );
 
-export default Start;
+export default Regeln;

@@ -1,61 +1,26 @@
-@import ../components/style/variables
 @import ~include-media/dist/_include-media.scss
+@import styles/variables
 
-.header
-  margin-top: 110px
-  letter-spacing: 1.2px
-  font-size: 40px
-  display: flex
-  align-items: center
-  justify-content: center
-  font-family: 'Roboto', sans-serif
-  width: 100%
-  height: 100px
-  margin-bottom: 20px
-  margin-left: -5px
-  position: relative
-  color: #ffffff
-  z-index: 2
-  @include media(">1100px")
-    font-size: 50px
-  &:after
-    background-color: #EE3124
-    content: ""
-    display: block
-    position: absolute
-    z-index: -1
-    width: 100%
-    height: 100px
-    border-radius: $general-border-radius
-    box-shadow: $general-box-shadow
-    margin-left: 6%
-    transform: translate3d(0,0,-30px) perspective(200px) rotateY(3deg) rotateX(-2deg) rotateZ(-0.5deg)
+@import index.module
 
 .wrapper
-  min-height: 600px
-  font-family: 'Open Sans', sans-serif
-  letter-spacing: 0.5px
-  width: 100%
-  background-color: #ffffff
-  border-radius: 10px
-  padding: 40px
-  box-sizing: border-box
-  margin-bottom: 20px
-  box-shadow: $general-box-shadow
   display: flex
-  align-items: start
   justify-content: space-between
   flex-wrap: wrap
+  flex-direction: row
+  &:after
+    background-color: transparent
+    box-shadow: none
 
 .partner
-  width: 30%
-  height: 150px
-  display: flex
-  align-items: start
-  justify-content: start
-  flex-direction: column
-  box-sizing: border-box
-  margin-top: 10px
+  position: relative
+  margin-bottom: 20px
+  width: 100%
+  height: 200px
+  padding: 10px
+  @include media(">bigPhone")
+    width: 30%
+    height: 200px
   & a
     display: flex
     align-items: center
@@ -66,25 +31,62 @@
     text-decoration: underline
     color: #000000
   & .imageWrapper
-    flex: 1
-    box-sizing: border-box
     width: 100%
+    height: 100%
     display: flex
     align-items: center
     justify-content: center
   & img
     display: block
-    max-width: 120px
-    max-height: 120px
     width: auto
+    max-width: 200px
+    max-height: 120px
+    @include media(">bigPhone")
+      max-width: 120px
+      max-height: 100px
     height: auto
   & span
-    margin-top: 10px
+    margin-top: 5px
     text-align: center
   &.partnerFullWidth
-    width: 100%
-    margin-top: 20px
-    & img
+    @include media(">bigPhone")
       width: 100%
-      max-width: 320px
-      max-height: 320px
+      height: 250px
+      & img
+        width: 100%
+        max-width: 320px
+        max-height: 250px
+  &:after
+    display: block
+    position: absolute
+    left: 0
+    top: 0
+    content: ''
+    box-shadow: $box-shadow
+    width: 100%
+    height: 100%
+    background-color: $white
+    border-radius: $border-radius
+    z-index: -1
+  &:nth-child(3n+0)
+    &:after
+      transform: translate3d(0,0,-20px) perspective(200px) rotateY(1deg) rotateX(-2deg) rotateZ(-0.5deg)
+      margin-left: 1%
+  &:nth-child(3n+1)
+    &:after
+      transform: translate3d(0,0,-20px) perspective(200px) rotateY(1deg) rotateX(-2deg) rotateZ(-0.5deg)
+      margin-left: 1%
+  &:nth-child(3n+2)
+    &:after
+      transform: translate3d(0,0,-20px) perspective(200px) rotateY(-1deg) rotateX(-2deg) rotateZ(-0.5deg)
+      margin-left: -2%
+  &.partnerFullWidth:nth-child(3n+0)
+    &:after
+      transform: translate3d(0,0,-20px) perspective(200px) rotateY(1deg) rotateX(-2deg) rotateZ(-0.5deg)
+  &.partnerFullWidth:nth-child(3n+1)
+    &:after
+      transform: translate3d(0,0,-20px) perspective(200px) rotateY(-1deg) rotateX(-2deg) rotateZ(-0.5deg)
+      margin-left: -2%
+  &.partnerFullWidth:nth-child(3n+2)
+    &:after
+      transform: translate3d(0,0,-20px) perspective(200px) rotateY(1deg) rotateX(-2deg) rotateZ(1deg)

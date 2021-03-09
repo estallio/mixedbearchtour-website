@@ -19,6 +19,13 @@
   font-size: $defaultFontSize * 1.75
   line-height: $defaultLineHeight * 1.75
   letter-spacing: $defaultLetterSpacing * 1.75
+  &.active,
+  &:hover
+    color: $white
+    &:after
+      background-color: $red
+    & .raiffeisenText
+      color: $white
   @include media(">desktop")
     color: $defaultFontColor
     font-size: $defaultDesktopFontSize * 0.9

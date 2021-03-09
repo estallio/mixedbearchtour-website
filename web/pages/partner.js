@@ -1,65 +1,45 @@
 import React from 'react';
 
+import { fetchPartners } from '../lib/api';
+
 import classNames from 'classnames';
 
-import { fetchPartner, getImageBuilder } from '../lib/api';
-
-import DefaultHeader from '../components/DefaultHeader';
+import Meta from '../components/Meta';
 import Layout from '../components/Layout';
+import ContactContext from '../components/ContactContext';
 
-import styles from './partner.sass';
+import styles from './partner.module.sass';
 
-export async function getStaticProps({ preview = false }) {
-  return { props: await fetchPartner(preview) };
+export async function getStaticProps() {
+  return { props: await fetchPartners() };
 }
 
-const Start = ({ partner, contact, preview }) => (
-  <>
-    <DefaultHeader
-      title="Mixed Beach-Tour"
-      description="Offizielle Website der Mixed Beach-Tour"
-      contact={contact}
-    />
-    <Layout preview={preview} contact={contact}>
+const Partner = ({ partners: { partners }, contact, seo }) => (
+  <ContactContext.Provider value={contact}>
+    <Meta seo={seo.seoPartner} />
+    <Layout>
       <div className={styles.header}>
-        <span>Partner</span>
+        <h1>Partner</h1>
       </div>
       <div className={styles.wrapper}>
-        <div className={classNames(styles.partner, styles.partnerFullWidth)}>
-          <a
-            href="https://www.raiffeisen.ch"
-            className={classNames(styles.link, styles.menu_entry)}
-            target="_blank"
-            rel="noreferrer"
+        {partners.map((partner) => (
+          <div
+            className={classNames(styles.partner, {
+              [styles.partnerFullWidth]: partner.fullWidth,
+            })}
+            key={partner._id}
           >
-            <div className={styles.imageWrapper}>
-              <img src="/media/images/raiffeisen.png" />
-            </div>
-            <span>Raiffeisen</span>
-          </a>
-        </div>
-        {partner.map(p => (
-          <div className={styles.partner} key={p.name + p.url}>
-            <a
-              href={`${p.url}`}
-              className={classNames(styles.link, styles.menu_entry)}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={`${partner.linkUrl}`} target="_blank" rel="noreferrer">
               <div className={styles.imageWrapper}>
-                <img
-                  src={getImageBuilder()
-                    .image(p.imageUrl)
-                    .url()}
-                />
+                <img src={partner.imageUrl} align={partner.name + ' Logo'} />
               </div>
-              <span>{p.name}</span>
+              <span>{partner.name}</span>
             </a>
           </div>
         ))}
       </div>
     </Layout>
-  </>
+  </ContactContext.Provider>
 );
 
-export default Start;
+export default Partner;

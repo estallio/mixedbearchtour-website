@@ -21,7 +21,11 @@ const QuickMenu = ({ styles = customStyles }) => {
 
   return (
     <div className={styles.menu}>
-      <Link href="/anmelden" defaultClass={styles.menuEntry}>
+      <Link
+        href="/anmelden"
+        defaultClass={styles.menuEntry}
+        activeClass={styles.active}
+      >
         <a className={styles.anmelden}>
           <span>
             <AiOutlineEdit className={styles.socialIcon} />

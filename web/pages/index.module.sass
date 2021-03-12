@@ -62,7 +62,9 @@
 
 .wrapper
   font-family: 'Open Sans', sans-serif
-  letter-spacing: 0.5px
+  letter-spacing: $defaultLetterSpacing
+  font-size: $defaultFontSize
+  line-height: $defaultLineHeight
   width: 100%
   padding: 15px
   margin-bottom: 20px
@@ -70,6 +72,9 @@
   position: relative
   @include media(">bigPhone")
     padding: 30px
+    letter-spacing: $defaultDesktopLetterSpacing
+    font-size: $defaultDesktopFontSize
+    line-height: $defaultDesktopLineHeight
   &:after
     background-color: $white
     content: ''
@@ -327,9 +332,13 @@
   border-radius: $border-radius
   font-family: 'Open Sans', sans-serif
   color: $black
-  font-size: 17px
-  letter-spacing: 0.3px
-  line-height: 24px
+  font-size: $defaultFontSize
+  letter-spacing: $defaultLetterSpacing
+  line-height: $defaultLineHeight
+  @include media(">bigPhone")
+    letter-spacing: $defaultDesktopLetterSpacing
+    font-size: $defaultDesktopFontSize
+    line-height: $defaultDesktopLineHeight
   overflow: hidden
   display: flex
   flex-direction: column
@@ -350,19 +359,27 @@
     background-color: #333333
     color: #ffffff
     & .tournamentTimespan
-      padding-top: 20px
-      font-size: 26px
-      line-height: 28px
+      padding-top: 12px
+      font-size: 20px
+      line-height: 22px
       letter-spacing: 0.3px
+      @include media(">iphone6Plus")
+        padding-top: 20px
+        font-size: 26px
+        line-height: 28px
       @include media(">bigPhone")
         font-size: 25px
         padding: inherit
       @include media(">tablet")
         font-size: 35px
     & .tournamenYear
-      padding-bottom: 20px
-      font-size: 80px
-      line-height: 75px
+      padding-bottom: 12px
+      font-size: 58px
+      line-height: 49px
+      @include media(">iphone6Plus")
+        padding-bottom: 20px
+        font-size: 80px
+        line-height: 75px
       @include media(">bigPhone")
         padding: inherit
         font-size: 70px
@@ -392,9 +409,13 @@
   border-radius: $border-radius
   font-family: 'Open Sans', sans-serif
   color: $black
-  font-size: 17px
-  letter-spacing: 0.3px
-  line-height: 24px
+  font-size: $defaultFontSize
+  letter-spacing: $defaultLetterSpacing
+  line-height: $defaultLineHeight
+  @include media(">bigPhone")
+    letter-spacing: $defaultDesktopLetterSpacing
+    font-size: $defaultDesktopFontSize
+    line-height: $defaultDesktopLineHeight
   overflow: hidden
   display: flex
   flex-direction: column-reverse

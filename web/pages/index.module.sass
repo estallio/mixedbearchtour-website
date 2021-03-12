@@ -1,6 +1,24 @@
 @import ~include-media/dist/_include-media.scss
 @import styles/variables
 
+.card
+  h3
+    margin: 0
+    line-height: 28px
+  width: 100%
+  background-color: $white
+  border-radius: $border-radius
+  box-shadow: $box-shadow
+  padding: 5px 20px 30px 20px
+  margin-top: 20px
+  &:first-child
+    margin-top: 10px
+  @include media(">tablet")
+    margin-top: 30px
+    padding: 15px 30px 30px 30px
+  &:last-child
+    margin-bottom: 50px
+
 .header
   margin-top: 5px
   display: flex

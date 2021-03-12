@@ -1,45 +1,56 @@
 import React from 'react';
 
-import { fetchVenues } from '../lib/api';
+import moment from 'moment';
+import 'moment/locale/de';
+moment.locale('de');
+
+import classNames from 'classnames';
+
+import { fetchStandorte } from '../lib/api';
 import ExtendedBlockContent from '../lib/ExtendedBlockContent';
 
-import DefaultHeader from '../components/DefaultHeader';
+import Meta from '../components/Meta';
 import Layout from '../components/Layout';
+import ContactContext from '../components/ContactContext';
 
-import styles from './standorte.sass';
+import styles from './standorte.module.sass';
 
-export async function getStaticProps({ preview = false }) {
-  return { props: await fetchVenues(preview) };
+export async function getStaticProps() {
+  return { props: await fetchStandorte() };
 }
 
-const Start = ({ orte, contact, preview }) => (
-  <>
-    <DefaultHeader
-      title="Standorte | Mixed Beach-Tour"
-      description="Alle Standorte der Mixed Beach-Tour in einer Liste"
-      contact={contact}
-    />
-    <Layout preview={preview} contact={contact}>
+const Standorte = ({ contact, seo, standorte }) => (
+  <ContactContext.Provider value={contact}>
+    <Meta seo={seo.seoStandorte} />
+    <Layout>
       <div className={styles.header}>
-        <span>Standorte</span>
+        <h1>Standorte</h1>
       </div>
-      <div className={styles.table}>
-        {orte.map(ort => (
-          <div className={styles.entry} key={ort.name}>
-            <div className={styles.left}>
-              <p className={styles.ort}>{ort.name}</p>
-              <ExtendedBlockContent blocks={ort.adresse} />
+      <div className={classNames(styles.cardsWrapper, styles.standorte)}>
+        {standorte.map((standort) => (
+          <div className={styles.card} key={standort._id}>
+            <div className={styles.addressWrapper}>
+              <div className={styles.address}>
+                <h3 className={styles.name}>{standort.name}</h3>
+                <ExtendedBlockContent blocks={standort.address} />
+              </div>
             </div>
-            <div className={styles.right}>
-              {ort.termine.map(datum => (
-                <p key={datum}>{datum}</p>
-              ))}
+            <div className={styles.datesWrapper}>
+              <ul className={styles.dates}>
+                {standort.dates.map((date) => (
+                  <li key={date._id}>
+                    <span className={styles.date}>
+                      {moment(date.datum).format('DD. MMMM')}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}
       </div>
     </Layout>
-  </>
+  </ContactContext.Provider>
 );
 
-export default Start;
+export default Standorte;

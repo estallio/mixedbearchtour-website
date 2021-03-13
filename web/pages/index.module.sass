@@ -158,6 +158,10 @@
   font-size: $defaultFontSize * 1.6
   line-height: $defaultLineHeight * 1.2
   letter-spacing: $defaultLetterSpacing * 1.6
+  @include media(">iphone6")
+    font-size: $defaultFontSize * 2.2
+    line-height: $defaultLineHeight * 1.5
+    letter-spacing: $defaultLetterSpacing * 2.2
   @include media(">iphone6Plus")
     font-size: $defaultFontSize * 2.2
     line-height: $defaultLineHeight * 1.5
@@ -185,6 +189,10 @@
   font-size: $defaultFontSize * 1
   line-height: $defaultLineHeight * 1
   letter-spacing: $defaultLetterSpacing * 1
+  @include media(">iphone6")
+    font-size: $defaultFontSize * 1.2
+    line-height: $defaultLineHeight * 1.2
+    letter-spacing: $defaultLetterSpacing * 1.2
   @include media(">iphone6Plus")
     font-size: $defaultFontSize * 1.4
     line-height: $defaultLineHeight * 1.4
@@ -250,6 +258,10 @@
     font-size: $defaultFontSize * 1
     line-height: $defaultLineHeight * 1
     letter-spacing: $defaultLetterSpacing * 1
+    @include media(">iphone6")
+      font-size: $defaultFontSize * 1.1
+      line-height: $defaultLineHeight * 1.1
+      letter-spacing: $defaultLetterSpacing * 1.1
     @include media(">iphone6Plus")
       font-size: $defaultFontSize * 1.3
       line-height: $defaultLineHeight * 1.1
@@ -279,6 +291,8 @@
   margin-top: 5px
   margin-left: -123px
   z-index: 2
+  @include media(">iphone6")
+    margin-left: -167px
   @include media(">iphone6Plus")
     margin-left: -177px
   @include media(">bigPhone")
@@ -296,6 +310,10 @@
     font-size: $defaultFontSize * 1.6
     line-height: $defaultLineHeight * 1.6
     letter-spacing: $defaultLetterSpacing * 1.6
+    @include media(">iphone6")
+      font-size: $defaultFontSize * 2
+      line-height: $defaultLineHeight * 2
+      letter-spacing: $defaultLetterSpacing * 2
     @include media(">iphone6Plus")
       font-size: $defaultFontSize * 2.2
       line-height: $defaultLineHeight * 2.2
@@ -371,7 +389,7 @@
         font-size: 25px
         padding: inherit
       @include media(">tablet")
-        font-size: 35px
+        font-size: 35pxs
     & .tournamenYear
       padding-bottom: 12px
       font-size: 58px

@@ -219,7 +219,6 @@
   justify-content: space-around
   width: 100%
   flex-direction: column
-  padding: 20px
   height: 60px
   position: relative
   z-index: 3
@@ -283,17 +282,11 @@
       line-height: $defaultLineHeight * 1.6
       letter-spacing: $defaultLetterSpacing * 2
     color: $red
-  display: flex
   text-align: start
-  flex: 1
   @include media(">bigPhone")
     width: 450px
-  align-items: flex-start
-  justify-content: flex-start
-  height: 100px
   position: relative
-  margin-top: 5px
-  margin-left: -133px
+  margin: 15px 0 0 -133px
   z-index: 2
   @include media(">=iphone6")
     margin-left: -190px
@@ -306,6 +299,7 @@
     margin-left: -68px
   @include media(">desktop")
     margin-left: -148px
+    margin-top: 32px
 
 .rmbtTitle
   h1
@@ -335,16 +329,13 @@
       line-height: $defaultLineHeight * 4.5
       letter-spacing: $defaultLetterSpacing * 4.5
     color: $black
-  display: flex
-  flex: 1
-  align-items: center
-  justify-content: center
   width: 100%
   text-align: center
-  height: 100px
   margin-top: -10px
   @include media(">bigPhone")
     margin-top: -20px
+  @include media(">desktop")
+    margin-top: -28px
 
 .introWrapper
   margin-top: 30px

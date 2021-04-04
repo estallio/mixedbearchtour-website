@@ -10,7 +10,10 @@ import ContactContext from '../components/ContactContext';
 import styles from './index.module.sass';
 
 export async function getStaticProps() {
-  return { props: await fetchPreise() };
+  return {
+    props: await fetchPreise(),
+    revalidate: 1,
+  };
 }
 
 const Preise = ({ seo, contact, preise: { prizesText } }) => (

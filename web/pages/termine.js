@@ -15,7 +15,10 @@ import ContactContext from '../components/ContactContext';
 import styles from './termine.module.sass';
 
 export async function getStaticProps() {
-  return { props: await fetchTermine() };
+  return {
+    props: await fetchTermine(),
+    revalidate: 1,
+  };
 }
 
 const Termine = ({ termine, contact, seo }) => {

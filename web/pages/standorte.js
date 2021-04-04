@@ -16,7 +16,10 @@ import ContactContext from '../components/ContactContext';
 import styles from './standorte.module.sass';
 
 export async function getStaticProps() {
-  return { props: await fetchStandorte() };
+  return {
+    props: await fetchStandorte(),
+    revalidate: 1,
+  };
 }
 
 const Standorte = ({ contact, seo, standorte }) => (

@@ -10,7 +10,10 @@ import ContactContext from '../components/ContactContext';
 import styles from './index.module.sass';
 
 export async function getStaticProps() {
-  return { props: await fetchRegeln() };
+  return {
+    props: await fetchRegeln(),
+    revalidate: 1,
+  };
 }
 
 const Regeln = ({ contact, seo, regeln: { rulesText } }) => (

@@ -9,7 +9,10 @@ import ContactContext from '../components/ContactContext'
 import styles from './index.module.sass';
 
 export async function getStaticProps() {
-  return { props: await fetchKontakt() };
+  return {
+    props: await fetchKontakt(),
+    revalidate: 1,
+  };
 }
 
 const Kontakt = ({ contact, seo, kontakt }) => {

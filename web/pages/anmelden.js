@@ -10,7 +10,10 @@ import ContactContext from '../components/ContactContext';
 import styles from './index.module.sass';
 
 export async function getStaticProps() {
-  return { props: await fetchAnmelden() };
+  return {
+    props: await fetchAnmelden(),
+    revalidate: 1,
+  };
 }
 
 const Start = ({ seo, contact, anmelden: { registerText } }) => (

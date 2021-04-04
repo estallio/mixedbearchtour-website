@@ -11,7 +11,10 @@ import ContactContext from '../components/ContactContext';
 import styles from './partner.module.sass';
 
 export async function getStaticProps() {
-  return { props: await fetchPartners() };
+  return {
+    props: await fetchPartners(),
+    revalidate: 1,
+  };
 }
 
 const Partner = ({ partners: { partners }, contact, seo }) => (

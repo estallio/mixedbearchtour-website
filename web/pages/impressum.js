@@ -10,7 +10,10 @@ import ContactContext from '../components/ContactContext';
 import styles from './index.module.sass';
 
 export async function getStaticProps() {
-  return { props: await fetchImpressum() };
+  return {
+    props: await fetchImpressum(),
+    revalidate: 1,
+  };
 }
 
 const Impressum = ({ contact, seo, impressum: { imprintText } }) => (

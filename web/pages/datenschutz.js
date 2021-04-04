@@ -10,7 +10,10 @@ import ContactContext from '../components/ContactContext'
 import styles from './index.module.sass';
 
 export async function getStaticProps() {
-  return { props: await fetchDataProtection() };
+  return {
+    props: await fetchDataProtection(),
+    revalidate: 1,
+  };
 }
 
 const Datenschutz = ({ contact, seo, datenschutz: { dataProtectionText } }) => (

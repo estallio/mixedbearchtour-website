@@ -11,16 +11,14 @@
   &:after
     background-color: transparent
     box-shadow: none
-  &::after
-    position: relative
-    margin-bottom: 20px
-    content: ""
-    width: 100%
-    height: 200px
-    padding: 10px
-    @include media(">bigPhone")
+  @include media(">bigPhone")
+    &::after
+      position: relative
+      margin-bottom: 20px
+      content: ""
       width: 30%
       height: 200px
+      padding: 10px
 
 .partner
   position: relative

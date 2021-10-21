@@ -5,4 +5,16 @@ module.exports = withOptimizedImages({
   responsive: {
     adapter: require('responsive-loader/sharp'),
   },
+  async rewrites() {
+    return [
+      {
+        source: '/pa/js/script.js',
+        destination: 'https://plausible.io/js/plausible.js'
+      },
+      {
+        source: '/pa/api/event',
+        destination: 'https://plausible.io/api/event'
+      }
+    ];
+  },
 });

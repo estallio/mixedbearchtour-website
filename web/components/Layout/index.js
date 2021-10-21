@@ -42,16 +42,7 @@ const HeadDependencies = () => (
   <Head>
     {/* For responsiveness */}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {/* For google fonts */}
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@600&display=swap"
-      rel="stylesheet"
-      /*
-        font-family: 'Roboto', sans-serif;
-        font-family: 'Open Sans', sans-serif;
-      */
-    />
+    <script defer data-domain="mixedbeachtour.ch" data-api="/pa/api/event" src="/pa/js/script.js"></script>
     {/* For old IEs */}
     <link rel="shortcut icon" href="/theme/favicons/favicon.ico" />
     {/* For new browsers - multisize ico */}

@@ -60,11 +60,13 @@ const Startseite = ({
             </>
           ) : (
             <>
-              <div className={styles.tournamentTimespanNotAvailable}>
-                <span>Termine folgen in Kürze</span>
-              </div>
               <div className={styles.tournamenYearNotAvailable}>
                 Stay tuned!
+              </div>
+              <div className={styles.tournamentTimespanNotAvailable}>
+                <span>
+                  Termine für {moment().format('YYYY')} folgen in Kürze
+                </span>
               </div>
             </>
           )}

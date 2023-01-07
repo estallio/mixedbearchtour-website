@@ -45,8 +45,8 @@ const Termine = ({ termine, contact, seo }) => {
           <div className={styles.wrapper}>
             <div className={classNames(styles.cardsWrapper, styles.termine)}>
               <p>Derzeit planen wir noch die ein oder andere Location für euch.
-                Sobald wir alle Termine für die kommende Saison wissen, schreiben wir sie auf diese Seite.
-                Stay Tuned!
+                Sobald wir alle Termine für die kommende Saison wissen,
+                schreiben wir sie auf diese Seite. Stay tuned!
               </p>
             </div>
           </div>

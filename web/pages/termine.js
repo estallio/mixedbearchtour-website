@@ -34,6 +34,27 @@ const Termine = ({ termine, contact, seo }) => {
     sortedTermine[monthName].push(termin);
   }
 
+  if (Object.keys(sortedTermine).length == 0) {
+    return (
+      <ContactContext.Provider value={contact}>
+        <Meta seo={seo.seoTermine} />
+        <Layout>
+          <div className={styles.header}>
+            <h1>Termine</h1>
+          </div>
+          <div className={styles.wrapper}>
+            <div className={classNames(styles.cardsWrapper, styles.termine)}>
+              <p>Derzeit planen wir noch die ein oder andere Location für euch.
+                Sobald wir alle Termine für die kommende Saison wissen, schreiben wir sie auf diese Seite.
+                Stay Tuned!
+              </p>
+            </div>
+          </div>
+        </Layout>
+      </ContactContext.Provider>
+    );
+  }
+
   return (
     <ContactContext.Provider value={contact}>
       <Meta seo={seo.seoTermine} />

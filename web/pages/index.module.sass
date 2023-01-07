@@ -400,6 +400,37 @@
       @include media(">tablet")
         font-size: 100px
         line-height: 90px
+    & .tournamentTimespanNotAvailable
+      padding-top: 12px
+      font-size: 20px
+      line-height: 22px
+      letter-spacing: 0.3px
+      @include media(">iphone6Plus")
+        padding-top: 20px
+        font-size: 16px
+        line-height: 18px
+      @include media(">bigPhone")
+        font-size: 21px
+        line-height: 27px
+        padding: inherit
+      @include media(">tablet")
+        font-size: 25px
+        line-height: 25px
+    & .tournamenYearNotAvailable
+      padding-bottom: 12px
+      font-size: 58px
+      line-height: 49px
+      @include media(">iphone6Plus")
+        padding-bottom: 20px
+        font-size: 35px
+        line-height: 45px
+      @include media(">bigPhone")
+        padding: inherit
+        font-size: 45px
+        line-height: 50px
+      @include media(">tablet")
+        font-size: 55px
+        line-height: 65px
   & .introRight
     padding: 5px 25px
     display: flex

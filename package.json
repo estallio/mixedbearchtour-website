@@ -4,7 +4,7 @@
   "private": true,
   "author": "Leonhard Esterbauer <leonhard.esterbauer@gmail.com>",
   "engines": {
-    "node": "10.x"
+    "node": ">10.x"
   },
   "scripts": {
     "dev": "lerna run dev --parallel",

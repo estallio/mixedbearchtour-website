@@ -46,15 +46,28 @@ const Startseite = ({
       </div>
       <div className={styles.introWrapper}>
         <div className={styles.introLeft}>
-          <div className={styles.tournamentTimespan}>
-            <span>
-              {moment(tournamentStart.datum).format('DD.MM')} -{' '}
-              {moment(tournamentEnd.datum).format('DD.MM')}
-            </span>
-          </div>
-          <div className={styles.tournamenYear}>
-            {moment(tournamentEnd.datum).format('YYYY')}
-          </div>
+          {tournamentStart && tournamentEnd ? (
+            <>
+              <div className={styles.tournamentTimespan}>
+                <span>
+                  {moment(tournamentStart.datum).format('DD.MM')} -{' '}
+                  {moment(tournamentEnd.datum).format('DD.MM')}
+                </span>
+              </div>
+              <div className={styles.tournamenYear}>
+                {moment(tournamentEnd.datum).format('YYYY')}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={styles.tournamentTimespanNotAvailable}>
+                <span>Termine folgen in Kürze</span>
+              </div>
+              <div className={styles.tournamenYearNotAvailable}>
+                Stay tuned!
+              </div>
+            </>
+          )}
         </div>
         <div className={styles.introRight}>
           <ExtendedBlockContent blocks={introTextTournaments} />

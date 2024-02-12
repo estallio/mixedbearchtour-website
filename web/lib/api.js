@@ -383,7 +383,7 @@ const fetchTermine = async () => {
         _id,
         courts,
         datum,
-        mixa,
+        mixe,
         mixb,
         mixc,
         ort->

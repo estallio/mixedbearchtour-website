@@ -94,12 +94,6 @@ const Termine = ({ termine, contact, seo }) => {
                     <div className={styles.mixGroupsWrapper}>
                       <div className={styles.mixGroup}>
                         <span className={styles.amount}>
-                          {termin.mixa || 0} Teams
-                        </span>
-                        <span className={styles.groupName}>Mix A</span>
-                      </div>
-                      <div className={styles.mixGroup}>
-                        <span className={styles.amount}>
                           {termin.mixb || 0} Teams
                         </span>
                         <span className={styles.groupName}>Mix B</span>
@@ -109,6 +103,12 @@ const Termine = ({ termine, contact, seo }) => {
                           {termin.mixc || 0} Teams
                         </span>
                         <span className={styles.groupName}>Mix C</span>
+                      </div>
+                      <div className={styles.mixGroup}>
+                        <span className={styles.amount}>
+                          {termin.mixe || 0} Teams
+                        </span>
+                        <span className={styles.groupName}>Mix E</span>
                       </div>
                     </div>
                   </div>

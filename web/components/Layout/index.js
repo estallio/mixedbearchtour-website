@@ -98,7 +98,7 @@ const HeadDependencies = () => (
     <link rel="icon" sizes="32x32" href="/theme/favicons/favicon-32.png" />
     {/* For IE10 Metro */}
     <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="favicon-144.png" />
+    <meta name="msapplication-TileImage" content="/theme/favicons/favicon-144.png" />
     <meta name="theme-color" content="#ffffff" />
     {/* Chrome for Android */}
     <link rel="manifest" href="/theme/favicons/manifest.json" />

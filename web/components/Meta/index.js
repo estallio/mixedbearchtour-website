@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -33,8 +33,7 @@ const Meta = ({ seo }) => {
           description: seo.seoDescription,
           images: [
             {
-              url:
-                'https://www.mixedbeachtour.ch/theme/images/open-graph-image.png',
+              url: 'https://www.mixedbeachtour.ch/theme/images/open-graph-image.png',
               alt: 'Mixed Beach-Tour Logo',
             },
           ],

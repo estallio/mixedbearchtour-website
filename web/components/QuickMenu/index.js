@@ -52,7 +52,7 @@ const QuickMenu = ({ styles = customStyles }) => {
         </span>
         <span>Instagram</span>
       </a>
-      
+
       <a
         className={classNames(styles.menuEntry, styles.whatsapp)}
         href={`${contact.whatsapp.href}`}

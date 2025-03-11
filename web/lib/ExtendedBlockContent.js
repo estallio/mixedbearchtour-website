@@ -33,7 +33,7 @@ const file = ({ mark, children }) => {
 const serializers = {
   marks: {
     link: link,
-    file: file
+    file: file,
   },
   types: {
     image: ({ node: { imageUrl, altText } }) => {
@@ -56,9 +56,9 @@ const serializers = {
       const [isOpen, setIsOpen] = useState(false);
       const [photoIndex, setPhotoIndex] = useState(0);
 
-      const galleryImages = images.map(image => ({
+      const galleryImages = images.map((image) => ({
         imageUrl: image.imageUrl + '?w=1500&h=1000&fit=clip&auto=format',
-        thumbnailUrl: image.imageUrl + '?w=200&h=200&fit=clip&auto=format'
+        thumbnailUrl: image.imageUrl + '?w=200&h=200&fit=clip&auto=format',
       }));
 
       return (
@@ -90,7 +90,7 @@ const serializers = {
               position: 'relative',
               width: '100%',
               paddingBottom: 50,
-              overflow: 'auto'
+              overflow: 'auto',
             }}
           >
             {galleryImages.map((item, i) => (
@@ -117,8 +117,8 @@ const serializers = {
       <pre data-language={language}>
         <code>{code}</code>
       </pre>
-    )
-  }
+    ),
+  },
 };
 
 const ExtendedBlockContent = ({ blocks }) => (

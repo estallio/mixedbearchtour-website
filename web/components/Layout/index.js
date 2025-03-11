@@ -42,7 +42,12 @@ const HeadDependencies = () => (
   <Head>
     {/* For responsiveness */}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script defer data-domain="mixedbeachtour.ch" data-api="/pa/api/event" src="/pa/js/script.js"></script>
+    <script
+      defer
+      data-domain="mixedbeachtour.ch"
+      data-api="/pa/api/event"
+      src="/pa/js/script.js"
+    ></script>
     {/* For old IEs */}
     <link rel="shortcut icon" href="/theme/favicons/favicon.ico" />
     {/* For new browsers - multisize ico */}
@@ -98,7 +103,10 @@ const HeadDependencies = () => (
     <link rel="icon" sizes="32x32" href="/theme/favicons/favicon-32.png" />
     {/* For IE10 Metro */}
     <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="/theme/favicons/favicon-144.png" />
+    <meta
+      name="msapplication-TileImage"
+      content="/theme/favicons/favicon-144.png"
+    />
     <meta name="theme-color" content="#ffffff" />
     {/* Chrome for Android */}
     <link rel="manifest" href="/theme/favicons/manifest.json" />

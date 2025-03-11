@@ -5,7 +5,7 @@ import ExtendedBlockContent from '../lib/ExtendedBlockContent';
 
 import Meta from '../components/Meta';
 import Layout from '../components/Layout';
-import ContactContext from '../components/ContactContext'
+import ContactContext from '../components/ContactContext';
 
 import styles from './index.module.sass';
 

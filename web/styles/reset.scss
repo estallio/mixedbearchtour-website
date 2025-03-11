@@ -26,7 +26,7 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
   @if $legacy_browser_support {
     *font-size: 100%; /* 3 */
-}
+  }
 }
 
 /**
@@ -77,7 +77,7 @@ video {
   @if $legacy_browser_support {
     *display: inline;
     *zoom: 1;
-}
+  }
 }
 
 /**
@@ -117,9 +117,10 @@ a {
  */
 
 a {
-  &:active, &:hover {
+  &:active,
+  &:hover {
     outline: 0;
-};
+  }
 }
 
 /* Text-level semantics
@@ -145,7 +146,7 @@ strong {
 @if $legacy_browser_support {
   blockquote {
     margin: 1em 40px;
-}
+  }
 }
 
 /**
@@ -170,27 +171,27 @@ h1 {
   h2 {
     font-size: 1.5em;
     margin: 0.83em 0;
-}
+  }
 
   h3 {
     font-size: 1.17em;
     margin: 1em 0;
-}
+  }
 
   h4 {
     font-size: 1em;
     margin: 1.33em 0;
-}
+  }
 
   h5 {
     font-size: 0.83em;
     margin: 1.67em 0;
-}
+  }
 
   h6 {
     font-size: 0.67em;
     margin: 2.33em 0;
-}
+  }
 }
 
 /**
@@ -203,7 +204,6 @@ mark {
 }
 
 @if $legacy_browser_support {
-
   /**
    * Addresses margins set differently in IE 6/7.
    */
@@ -211,7 +211,7 @@ mark {
   p,
   pre {
     *margin: 1em 0;
-}
+  }
 
   /*
    * Addresses CSS quotes not supported in IE 6/7.
@@ -219,7 +219,7 @@ mark {
 
   q {
     *quotes: none;
-}
+  }
 
   /*
    * Addresses `quotes` property not supported in Safari 4.
@@ -229,7 +229,7 @@ mark {
   q:after {
     content: '';
     content: none;
-}
+  }
 }
 
 /**
@@ -261,7 +261,6 @@ sub {
 }
 
 @if $legacy_browser_support {
-
   /* ==========================================================================
      Lists
      ========================================================================== */
@@ -275,11 +274,11 @@ sub {
   ol,
   ul {
     *margin: 1em 0;
-}
+  }
 
   dd {
     *margin: 0 0 0 40px;
-}
+  }
 
   /*
    * Addresses paddings set differently in IE 6/7.
@@ -289,7 +288,7 @@ sub {
   ol,
   ul {
     *padding: 0 0 0 40px;
-}
+  }
 
   /*
    * Corrects list images handled incorrectly in IE 7.
@@ -299,8 +298,7 @@ sub {
   nav ol {
     *list-style: none;
     *list-style-image: none;
-}
-
+  }
 }
 
 /* Embedded content
@@ -315,7 +313,7 @@ img {
   border: 0;
   @if $legacy_browser_support {
     *-ms-interpolation-mode: bicubic; /* 2 */
-}
+  }
 }
 
 /**
@@ -366,7 +364,7 @@ samp {
   font-family: monospace, monospace;
   @if $legacy_browser_support {
     _font-family: 'courier new', monospace;
-}
+  }
   font-size: 1em;
 }
 
@@ -397,7 +395,7 @@ textarea {
   @if $legacy_browser_support {
     vertical-align: baseline; /* 3 */
     *vertical-align: middle; /* 3 */
-}
+  }
 }
 
 /**
@@ -437,8 +435,8 @@ input[type="submit"] {
   -webkit-appearance: button; /* 2 */
   cursor: pointer; /* 3 */
   @if $legacy_browser_support {
-    *overflow: visible;  /* 4 */
-}
+    *overflow: visible; /* 4 */
+  }
 }
 
 /**
@@ -475,14 +473,14 @@ input {
  *  Known issue: excess padding remains in IE 6.
  */
 
-input[type="checkbox"],
-input[type="radio"] {
+input[type='checkbox'],
+input[type='radio'] {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
   @if $legacy_browser_support {
     *height: 13px; /* 3 */
     *width: 13px; /* 3 */
-}
+  }
 }
 
 /**
@@ -491,8 +489,8 @@ input[type="radio"] {
  * decrement button to change from `default` to `text`.
  */
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -501,7 +499,7 @@ input[type="number"]::-webkit-outer-spin-button {
  * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
  */
 
-input[type="search"] {
+input[type='search'] {
   -webkit-appearance: textfield; /* 1 */
   box-sizing: content-box; /* 2 */
 }
@@ -512,8 +510,8 @@ input[type="search"] {
  * padding (and `textfield` appearance).
  */
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -540,7 +538,7 @@ legend {
   @if $legacy_browser_support {
     white-space: normal; /* 3 */
     *margin-left: -7px; /* 4 */
-}
+  }
 }
 
 /**

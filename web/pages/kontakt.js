@@ -15,8 +15,8 @@ export async function getStaticProps() {
   };
 }
 
-const Kontakt = ({ contact, seo, kontakt }) => {
-  const { mail, tel, whatsapp, facebook, instagram } = contact;
+const Kontakt = ({ contact, seo }) => {
+  const { mail, tel, whatsapp, instagram } = contact;
 
   return (
     <ContactContext.Provider value={contact}>

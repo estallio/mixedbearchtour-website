@@ -53,7 +53,9 @@ const serializers = {
       );
     },
     gallery: ({ node: { images } }) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       const [isOpen, setIsOpen] = useState(false);
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       const [photoIndex, setPhotoIndex] = useState(0);
 
       const galleryImages = images.map((image) => ({

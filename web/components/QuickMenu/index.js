@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 
 import {
   AiOutlineInstagram,
-  AiOutlineFacebook,
   AiOutlineEdit,
   AiOutlineMail,
   AiOutlineWhatsApp,

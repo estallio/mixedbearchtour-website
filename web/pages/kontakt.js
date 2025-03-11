@@ -4,7 +4,7 @@ import { fetchKontakt } from '../lib/api';
 
 import Meta from '../components/Meta';
 import Layout from '../components/Layout';
-import ContactContext from '../components/ContactContext'
+import ContactContext from '../components/ContactContext';
 
 import styles from './index.module.sass';
 
@@ -31,19 +31,15 @@ const Kontakt = ({ contact, seo, kontakt }) => {
             Mail:{' '}
             <a href={`mailto:${mail}?subject=Website%20Anfrage`}>{mail}</a>
           </p>
-          <p>
-            Tel.: <a href={`tel:${tel.replace(/\s/g, '')}`}>{tel}</a>
-          </p>
+          {tel && (
+            <p>
+              Tel.: <a href={`tel:${tel.replace(/\s/g, '')}`}>{tel}</a>
+            </p>
+          )}
           <p>
             Whatsapp:{' '}
             <a href={`${whatsapp.href}`} target="_blank" rel="noreferrer">
               {whatsapp.name}
-            </a>
-          </p>
-          <p>
-            Facebook:{' '}
-            <a href={`${facebook.href}`} target="_blank" rel="noreferrer">
-              {facebook.name}
             </a>
           </p>
           <p>

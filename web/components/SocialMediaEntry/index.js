@@ -18,9 +18,6 @@ const SocialMediaEntry = () => {
         <a href={`${contact.instagram.href}`} target="_blank" rel="noreferrer">
           <i className={styles.instagram}></i>
         </a>
-        <a href={`${contact.facebook.href}`} target="_blank" rel="noreferrer">
-          <i className={styles.facebook}></i>
-        </a>
       </div>
       <div className={styles.right}>
         <ExtendedBlockContent blocks={contact.socialMediaText} />

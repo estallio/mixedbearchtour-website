@@ -25,13 +25,12 @@ const QuickMenu = ({ styles = customStyles }) => {
         href="/anmelden"
         defaultClass={styles.menuEntry}
         activeClass={styles.active}
+        specialClass={styles.anmelden}
       >
-        <a className={styles.anmelden}>
-          <span>
-            <AiOutlineEdit className={styles.socialIcon} />
-          </span>
-          <span>Anmelden</span>
-        </a>
+        <span>
+          <AiOutlineEdit className={styles.socialIcon} />
+        </span>
+        <span>Anmelden</span>
       </Link>
       <a
         className={classNames(styles.menuEntry, styles.email)}
@@ -53,18 +52,7 @@ const QuickMenu = ({ styles = customStyles }) => {
         </span>
         <span>Instagram</span>
       </a>
-
-      <a
-        className={classNames(styles.menuEntry, styles.facebook)}
-        href={`${contact.facebook.href}`}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <span>
-          <AiOutlineFacebook className={styles.socialIcon} />
-        </span>
-        <span>Facebook</span>
-      </a>
+      
       <a
         className={classNames(styles.menuEntry, styles.whatsapp)}
         href={`${contact.whatsapp.href}`}

@@ -38,85 +38,78 @@ const Menu = () => {
           href="/"
           defaultClass={styles.navItem}
           activeClass={styles.active}
+          specialClass={styles.startseite}
         >
-          <a className={styles.startseite}>
-            <span>
-              <AiOutlineHome className={styles.socialIcon} />
-            </span>
-            <span>Startseite</span>
-          </a>
+          <span>
+            <AiOutlineHome className={styles.socialIcon} />
+          </span>
+          <span>Startseite</span>
         </Link>
         <Link
           href="/standorte"
           defaultClass={styles.navItem}
           activeClass={styles.active}
+          specialClass={styles.standorte}
         >
-          <a className={styles.standorte}>
-            <span>
-              <FaMapMarkedAlt className={styles.socialIcon} />
-            </span>
-            <span>Standorte</span>
-          </a>
+          <span>
+            <FaMapMarkedAlt className={styles.socialIcon} />
+          </span>
+          <span>Standorte</span>
         </Link>
         <Link
           href="/termine"
           defaultClass={styles.navItem}
           activeClass={styles.active}
+          specialClass={styles.termine}
         >
-          <a className={styles.termine}>
-            <span>
-              <BiCalendarEvent className={styles.socialIcon} />
-            </span>
-            <span>Termine</span>
-          </a>
+          <span>
+            <BiCalendarEvent className={styles.socialIcon} />
+          </span>
+          <span>Termine</span>
         </Link>
         <Link
           href="/regeln"
           defaultClass={styles.navItem}
           activeClass={styles.active}
+          specialClass={styles.regeln}
         >
-          <a className={styles.regeln}>
-            <span>
-              <GiRuleBook className={styles.socialIcon} />
-            </span>
-            <span>Regeln</span>
-          </a>
+          <span>
+            <GiRuleBook className={styles.socialIcon} />
+          </span>
+          <span>Regeln</span>
         </Link>
         <Link
           href="/preise"
           defaultClass={styles.navItem}
           activeClass={styles.active}
+          specialClass={styles.preise}
         >
-          <a className={styles.preise}>
-            <span>
-              <BiMedal className={styles.socialIcon} />
-            </span>
-            <span>Preise</span>
-          </a>
+          <span>
+            <BiMedal className={styles.socialIcon} />
+          </span>
+          <span>Preise</span>
         </Link>
         <Link
           href="/partner"
           defaultClass={styles.navItem}
           activeClass={styles.active}
+          specialClass={styles.partner}
         >
-          <a className={styles.partner}>
-            <span>
-              <FaHandsHelping className={styles.socialIcon} />
-            </span>
-            <span>Partner</span>
-          </a>
+          <span>
+            <FaHandsHelping className={styles.socialIcon} />
+          </span>
+          <span>Partner</span>
         </Link>
         <Link
           href="/kontakt"
           defaultClass={styles.navItem}
           activeClass={styles.active}
+          specialClass={styles.kontakt}
         >
-          <a className={styles.kontakt}>
-            <span>
-              <AiOutlineContacts className={styles.socialIcon} />
-            </span>
-            <span>Kontakt</span>
-          </a>
+          <span>
+            <AiOutlineContacts className={styles.socialIcon} />
+          </span>
+          <span>Kontakt</span>
         </Link>
         <div className={styles.quickMenu}>
           <QuickMenu styles={quickMenuStyles} />

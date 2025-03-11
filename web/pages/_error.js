@@ -24,31 +24,30 @@ const ErrorPage = ({ statusCode }) => {
   return (
     <div className={styles.error}>
       <Error statusCode={code} title={title} />
-      <Link href="/">
-        <a
-          style={{
-            position: 'absolute',
-            top: '50%',
-            textAlign: 'center',
-            display: 'block',
-            width: '100%',
-            paddingTop: 50,
-          }}
-          className={styles.more}
-        >
-          <p>
-            <span>Zurück zur Startseite</span>
-            <FontAwesomeIcon
-              icon={faChevronRight}
-              style={{
-                marginLeft: 5,
-                width: 15,
-                height: 15,
-                marginTop: 15,
-              }}
-            />
-          </p>
-        </a>
+      <Link
+        href="/"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          textAlign: 'center',
+          display: 'block',
+          width: '100%',
+          paddingTop: 50,
+        }}
+        className={styles.more}
+      >
+        <p>
+          <span>Zurück zur Startseite</span>
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            style={{
+              marginLeft: 5,
+              width: 15,
+              height: 15,
+              marginTop: 15,
+            }}
+          />
+        </p>
       </Link>
     </div>
   );

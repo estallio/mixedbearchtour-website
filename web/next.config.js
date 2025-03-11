@@ -9,12 +9,12 @@ module.exports = withOptimizedImages({
     return [
       {
         source: '/pa/js/script.js',
-        destination: 'https://plausible.io/js/plausible.js'
+        destination: 'https://plausible.io/js/plausible.js',
       },
       {
         source: '/pa/api/event',
-        destination: 'https://plausible.io/api/event'
-      }
+        destination: 'https://plausible.io/api/event',
+      },
     ];
   },
 });

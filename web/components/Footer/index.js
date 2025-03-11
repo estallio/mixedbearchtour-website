@@ -16,13 +16,13 @@ const Footer = () => (
       </div>
       <div className={styles.bottomNav}>
         <Link href="/kontakt" activeClass={styles.active}>
-          <a style={styles.kontakt}>Kontakt</a>
+          <span style={styles.kontakt}>Kontakt</span>
         </Link>
         <Link href="/datenschutz" activeClass={styles.active}>
-          <a className={styles.datenschutz}>Datenschutz</a>
+          <span className={styles.datenschutz}>Datenschutz</span>
         </Link>
         <Link href="/impressum" activeClass={styles.active}>
-          <a className={styles.impressum}>Impressum</a>
+          <span className={styles.impressum}>Impressum</span>
         </Link>
       </div>
     </div>

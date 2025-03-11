@@ -46,7 +46,9 @@ const Startseite = ({
       </div>
       <div className={styles.introWrapper}>
         <div className={styles.introLeft}>
-          {tournamentStart && tournamentEnd ? (
+          {tournamentStart &&
+          tournamentEnd &&
+          moment(tournamentEnd.datum).isSame(new Date(), 'year') ? (
             <>
               <div className={styles.tournamentTimespan}>
                 <span>

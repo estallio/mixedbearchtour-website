@@ -383,9 +383,10 @@ const fetchTermine = async () => {
         _id,
         courts,
         datum,
-        mixe,
+        mixa,
         mixb,
         mixc,
+        mixd,
         ort->
       } | order(datum asc)
     }`

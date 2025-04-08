@@ -29,6 +29,11 @@ export default {
       type: 'number',
     },
     {
+      title: 'MixA',
+      name: 'mixa',
+      type: 'number',
+    },
+    {
       title: 'MixB',
       name: 'mixb',
       type: 'number',
@@ -39,8 +44,8 @@ export default {
       type: 'number',
     },
     {
-      title: 'MixE',
-      name: 'mixe',
+      title: 'MixD',
+      name: 'mixd',
       type: 'number',
     },
   ],

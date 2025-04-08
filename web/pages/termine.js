@@ -112,9 +112,9 @@ const Termine = ({ termine, contact, seo }) => {
                       </div>
                       <div className={styles.mixGroup}>
                         <span className={styles.amount}>
-                          {termin.mixd || 0} Teams
+                          {termin.mixe || 0} Teams
                         </span>
-                        <span className={styles.groupName}>Mix D</span>
+                        <span className={styles.groupName}>Mix E</span>
                       </div>
                     </div>
                   </div>

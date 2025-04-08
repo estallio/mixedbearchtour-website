@@ -44,8 +44,8 @@ export default {
       type: 'number',
     },
     {
-      title: 'MixD',
-      name: 'mixd',
+      title: 'MixE',
+      name: 'mixe',
       type: 'number',
     },
   ],

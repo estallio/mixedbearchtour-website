@@ -438,15 +438,22 @@
     padding: 5px 25px
     display: flex
     justify-content: center
-    flex-direction: column
+    flex-direction: row
     width: 100%
+    max-height: 150px
+    background-color: rgb(254, 249, 243)
     @include media(">550px")
       padding: 10px 20px
       width: 55%
+      max-height: 200px
     @include media(">tablet")
       padding: 15px 35px
+      max-height: 250px
     @include media(">desktop")
       padding: 20px 45px
+      max-height: 300px
+    & img
+      object-fit: contain
 
 .organisationWrapper
   margin-top: 15px
@@ -489,6 +496,16 @@
     width: 100%
     @include media(">550px")
       width: 60%
+      padding: 10px 35px
+    @include media(">desktop")
+      padding: 20px 45px
+  & .organisationFull
+    padding: 5px 25px
+    display: flex
+    justify-content: center
+    flex-direction: column
+    width: 100%
+    @include media(">550px")
       padding: 10px 35px
     @include media(">desktop")
       padding: 20px 45px

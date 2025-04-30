@@ -74,6 +74,11 @@ const Startseite = ({
           )}
         </div>
         <div className={styles.introRight}>
+          <img src="/theme/images/logo_swiss_beachfun.jpg" />
+        </div>
+      </div>
+      <div className={styles.organisationWrapper}>
+        <div className={styles.organisationFull}>
           <ExtendedBlockContent blocks={introTextTournaments} />
         </div>
       </div>

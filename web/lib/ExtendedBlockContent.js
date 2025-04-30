@@ -47,7 +47,7 @@ const serializers = {
           <img
             alt={altText}
             src={imageUrl + '?w=1500&h=1000&fit=clip&auto=format'}
-            style={{ display: 'block', margin: '0 auto' }}
+            style={{ display: 'block', margin: '0 auto', maxWidth: '100%' }}
           />
         </a>
       );

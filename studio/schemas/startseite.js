@@ -7,7 +7,7 @@ export default {
     {
       title: 'Einleitungstext Turniere',
       name: 'introTextTournaments',
-      type: 'simpleEditor',
+      type: 'richEditor',
     },
     {
       title: 'Einleitungstext Allgemein',

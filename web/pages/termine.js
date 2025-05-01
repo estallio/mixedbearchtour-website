@@ -13,6 +13,12 @@ import Layout from '../components/Layout';
 import ContactContext from '../components/ContactContext';
 
 import styles from './termine.module.sass';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from '../components/Link';
+import {
+  faExternalLinkAlt,
+  faExternalLinkSquareAlt,
+} from '@fortawesome/free-solid-svg-icons';
 
 export async function getStaticProps() {
   return {
@@ -79,44 +85,94 @@ const Termine = ({ termine, contact, seo }) => {
                     */}
                     <span>{moment(termin.datum).format('DD.')}</span>
                   </div>
-                  <div className={styles.info}>
-                    <div className={styles.locationAndCourtsWrapper}>
-                      <div className={styles.date}>
-                        <span>{moment(termin.datum).format('DD.MM.YYYY')}</span>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                    }}
+                  >
+                    <div className={styles.info}>
+                      <div className={styles.locationAndCourtsWrapper}>
+                        <div className={styles.date}>
+                          <span>
+                            {moment(termin.datum).format('DD.MM.YYYY')}
+                          </span>
+                        </div>
+                        <div className={styles.location}>
+                          <span>{termin.ort.shortName}</span>
+                        </div>
+                        <div className={styles.courts}>
+                          <span>{termin.courts} Courts</span>
+                        </div>
                       </div>
-                      <div className={styles.location}>
-                        <span>{termin.ort.shortName}</span>
-                      </div>
-                      <div className={styles.courts}>
-                        <span>{termin.courts} Courts</span>
+                      <div className={styles.mixGroupsWrapper}>
+                        <div className={styles.mixGroup}>
+                          <span className={styles.amount}>
+                            {termin.mixa || 0} Teams
+                          </span>
+                          <span className={styles.groupName}>Mix A</span>
+                        </div>
+                        <div className={styles.mixGroup}>
+                          <span className={styles.amount}>
+                            {termin.mixb || 0} Teams
+                          </span>
+                          <span className={styles.groupName}>Mix B</span>
+                        </div>
+                        <div className={styles.mixGroup}>
+                          <span className={styles.amount}>
+                            {termin.mixc || 0} Teams
+                          </span>
+                          <span className={styles.groupName}>Mix C</span>
+                        </div>
+                        <div className={styles.mixGroup}>
+                          <span className={styles.amount}>
+                            {termin.mixe || 0} Teams
+                          </span>
+                          <span className={styles.groupName}>Mix E</span>
+                        </div>
                       </div>
                     </div>
-                    <div className={styles.mixGroupsWrapper}>
-                      <div className={styles.mixGroup}>
-                        <span className={styles.amount}>
-                          {termin.mixa || 0} Teams
-                        </span>
-                        <span className={styles.groupName}>Mix A</span>
+                    {termin.anmeldelink && (
+                      <div
+                        style={{
+                          alignSelf: 'center',
+                          width: '100%',
+                          paddingTop: '10px',
+                        }}
+                      >
+                        <Link
+                          href={termin.anmeldelink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <p
+                            style={{
+                              backgroundColor: 'black',
+                              display: 'block',
+                              margin: 0,
+                              marginTop: 0,
+                              marginBottom: 0,
+                              color: 'white',
+                              padding: '5px 10px 5px 10px',
+                              borderRadius: '5px',
+                              width: '100%',
+                              textAlign: 'center',
+                            }}
+                          >
+                            <span>Anmelden</span>
+                            <FontAwesomeIcon
+                              icon={faExternalLinkAlt}
+                              style={{
+                                marginLeft: 6,
+                                width: 13,
+                                height: 13,
+                                verticalAlign: 'middle',
+                              }}
+                            />
+                          </p>
+                        </Link>
                       </div>
-                      <div className={styles.mixGroup}>
-                        <span className={styles.amount}>
-                          {termin.mixb || 0} Teams
-                        </span>
-                        <span className={styles.groupName}>Mix B</span>
-                      </div>
-                      <div className={styles.mixGroup}>
-                        <span className={styles.amount}>
-                          {termin.mixc || 0} Teams
-                        </span>
-                        <span className={styles.groupName}>Mix C</span>
-                      </div>
-                      <div className={styles.mixGroup}>
-                        <span className={styles.amount}>
-                          {termin.mixe || 0} Teams
-                        </span>
-                        <span className={styles.groupName}>Mix E</span>
-                      </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               ))}

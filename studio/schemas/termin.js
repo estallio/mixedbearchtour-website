@@ -48,6 +48,11 @@ export default {
       name: 'mixe',
       type: 'number',
     },
+    {
+      title: 'Anmeldelink',
+      name: 'anmeldelink',
+      type: 'url',
+    },
   ],
   orderings: [
     {

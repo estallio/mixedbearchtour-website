@@ -387,6 +387,7 @@ const fetchTermine = async () => {
         mixb,
         mixc,
         mixe,
+        anmeldelink,
         ort->
       } | order(datum asc)
     }`

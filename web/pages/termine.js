@@ -142,9 +142,7 @@ const Termine = ({ termine, contact, seo }) => {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <p
-                            className={styles.anmeldebutton}
-                          >
+                          <p className={styles.anmeldebutton}>
                             <span>Anmelden</span>
                             <FontAwesomeIcon
                               icon={faExternalLinkAlt}

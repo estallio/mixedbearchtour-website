@@ -2,8 +2,6 @@ import React from 'react';
 
 import moment from 'moment';
 import 'moment/locale/de';
-moment.locale('de');
-
 import classNames from 'classnames';
 
 import { fetchTermine } from '../lib/api';
@@ -15,10 +13,9 @@ import ContactContext from '../components/ContactContext';
 import styles from './termine.module.sass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from '../components/Link';
-import {
-  faExternalLinkAlt,
-  faExternalLinkSquareAlt,
-} from '@fortawesome/free-solid-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+
+moment.locale('de');
 
 export async function getStaticProps() {
   return {

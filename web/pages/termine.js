@@ -143,18 +143,7 @@ const Termine = ({ termine, contact, seo }) => {
                           rel="noopener noreferrer"
                         >
                           <p
-                            style={{
-                              backgroundColor: 'black',
-                              display: 'block',
-                              margin: 0,
-                              marginTop: 0,
-                              marginBottom: 0,
-                              color: 'white',
-                              padding: '5px 10px 5px 10px',
-                              borderRadius: '5px',
-                              width: '100%',
-                              textAlign: 'center',
-                            }}
+                            className={styles.anmeldebutton}
                           >
                             <span>Anmelden</span>
                             <FontAwesomeIcon
